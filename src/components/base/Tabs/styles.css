@@ -1,0 +1,66 @@
+@layer components {
+  .tabs {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    &__nav {
+      display: flex;
+      border-bottom: 1px solid var(--border-base);
+      gap: 0;
+    }
+
+    &__tab {
+      padding: var(--space-2) var(--space-4);
+      font-size: var(--font-size-label-lg);
+      font-weight: var(--font-weight-label-lg);
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      transition:
+        color 0.15s ease,
+        border-color 0.15s ease;
+
+      &[aria-selected='true'] {
+        color: var(--fill-interactive);
+        border-bottom-color: var(--fill-interactive);
+      }
+
+      &:hover:not([aria-selected='true']) {
+        color: var(--text-primary);
+      }
+    }
+
+    &__panel {
+      padding: var(--space-5) 0;
+    }
+
+    /* Pills variant */
+    &--variant-pills {
+      .tabs__nav {
+        border-bottom: none;
+        gap: var(--space-1);
+        background: var(--fill-subtle);
+        padding: var(--space-1);
+        border-radius: var(--border-radius-md);
+      }
+
+      .tabs__tab {
+        border: none;
+        border-radius: var(--border-radius-sm);
+        margin-bottom: 0;
+
+        &[aria-selected='true'] {
+          background: var(--fill-background);
+          color: var(--text-primary);
+          box-shadow: var(--shadow-xs);
+        }
+      }
+    }
+  }
+}

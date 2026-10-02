@@ -1,0 +1,8 @@
+@layer tokens, reset, base, components, utilities, overrides;
+
+@import './tokens/index.css' layer(tokens);
+@import 'normalize.css' layer(reset);
+
+@import './styles/reset.css';
+@import './styles/base.css';
+@import './styles/components.css';

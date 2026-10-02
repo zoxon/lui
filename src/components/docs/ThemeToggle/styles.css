@@ -1,0 +1,20 @@
+@layer components {
+  .docs-theme-toggle {
+    background: none;
+    border: 1px solid var(--border-base);
+    border-radius: var(--border-radius-sm);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    line-height: 1;
+
+    &:hover {
+      background: var(--fill-subtle);
+      color: var(--text-primary);
+    }
+  }
+}

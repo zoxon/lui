@@ -1,0 +1,42 @@
+@layer components {
+  .docs-nav {
+    padding: var(--space-3) var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    &__section {
+      font-size: var(--font-size-label-sm);
+      font-weight: var(--font-weight-label-sm);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: var(--space-3) var(--space-2) var(--space-1);
+      margin-top: var(--space-1);
+    }
+
+    &__link {
+      display: block;
+      padding: var(--space-1) var(--space-2);
+      font-size: var(--font-size-body-sm);
+      line-height: var(--line-height-body-md);
+      color: var(--text-secondary);
+      border-radius: var(--border-radius-sm);
+      transition:
+        background 0.1s ease,
+        color 0.1s ease;
+      text-decoration: none;
+
+      &:hover {
+        background: var(--fill-subtle);
+        color: var(--text-primary);
+      }
+
+      &--active {
+        background: var(--fill-interactive-subtle);
+        color: var(--text-primary);
+        font-weight: var(--font-weight-label-md);
+      }
+    }
+  }
+}

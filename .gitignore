@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.lui/
+.lui-e2e-*/
+.worktrees/
+.DS_Store
+.pnpm-store/
+.vite/
+.env
+.env.*
+.claude/
+.superpowers/

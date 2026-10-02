@@ -1,0 +1,52 @@
+:root {
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  --font-size-display-2xl: 32px;
+  --line-height-display-2xl: 40px;
+  --font-weight-display-2xl: 600;
+
+  --font-size-display-xl: 28px;
+  --line-height-display-xl: 36px;
+  --font-weight-display-xl: 600;
+
+  --font-size-heading-h1: 24px;
+  --line-height-heading-h1: 32px;
+  --font-weight-heading-h1: 600;
+
+  --font-size-heading-h2: 20px;
+  --line-height-heading-h2: 28px;
+  --font-weight-heading-h2: 600;
+
+  --font-size-heading-h3: 16px;
+  --line-height-heading-h3: 24px;
+  --font-weight-heading-h3: 600;
+
+  --font-size-heading-h4: 14px;
+  --line-height-heading-h4: 20px;
+  --font-weight-heading-h4: 600;
+
+  --font-size-body-lg: 16px;
+  --line-height-body-lg: 24px;
+
+  --font-size-body-md: 14px;
+  --line-height-body-md: 20px;
+
+  --font-size-body-sm: 12px;
+  --line-height-body-sm: 16px;
+
+  --font-size-label-lg: 14px;
+  --line-height-label-lg: 20px;
+  --font-weight-label-lg: 500;
+
+  --font-size-label-md: 12px;
+  --line-height-label-md: 16px;
+  --font-weight-label-md: 500;
+
+  --font-size-label-sm: 11px;
+  --line-height-label-sm: 14px;
+  --font-weight-label-sm: 500;
+
+  --font-size-caption: 11px;
+  --line-height-caption: 16px;
+}

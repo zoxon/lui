@@ -1,0 +1,41 @@
+@layer components {
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--border-radius-full);
+    font-weight: var(--font-weight-label-md);
+    white-space: nowrap;
+
+    &--size-sm {
+      height: 18px;
+      padding: 0 var(--space-2);
+      font-size: var(--font-size-label-sm);
+    }
+    &--size-md {
+      height: 22px;
+      padding: 0 var(--space-2);
+      font-size: var(--font-size-label-md);
+    }
+
+    &--theme-default {
+      background: var(--fill-subtle);
+      color: var(--text-secondary);
+    }
+    &--theme-success {
+      background: var(--fill-success-subtle);
+      color: var(--text-success);
+    }
+    &--theme-warning {
+      background: var(--fill-warning-subtle);
+      color: var(--text-warning);
+    }
+    &--theme-danger {
+      background: var(--fill-danger-subtle);
+      color: var(--text-danger);
+    }
+    &--theme-info {
+      background: var(--fill-info-subtle);
+      color: var(--text-info);
+    }
+  }
+}

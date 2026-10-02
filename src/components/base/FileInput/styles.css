@@ -1,0 +1,90 @@
+@layer components {
+  .file-input {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 0;
+    height: 42px;
+    border: 1px solid var(--border-base);
+    border-radius: var(--border-radius-md);
+    background: var(--fill-background);
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+
+    &:focus-within {
+      border-color: var(--fill-interactive);
+      box-shadow: 0 0 0 3px var(--fill-interactive-subtle);
+    }
+
+    &--error {
+      border-color: var(--fill-danger);
+
+      &:focus-within {
+        box-shadow: 0 0 0 3px var(--fill-danger-subtle);
+      }
+
+      .file-input__trigger {
+        opacity: 1;
+      }
+    }
+
+    &--disabled {
+      background: var(--fill-subtle);
+      cursor: not-allowed;
+
+      .file-input__trigger {
+        opacity: 0.5;
+      }
+
+      .file-input__value {
+        color: var(--text-disabled);
+      }
+    }
+
+    &:hover:not(.file-input--disabled) {
+      .file-input__trigger {
+        background: var(--fill-muted);
+      }
+    }
+
+    &__native {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &__trigger {
+      flex-shrink: 0;
+      padding: 0 var(--space-3);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-size: var(--font-size-label-md);
+      font-weight: var(--font-weight-label-md);
+      color: var(--text-primary);
+      background: var(--fill-subtle);
+      border-right: 1px solid var(--border-base);
+      white-space: nowrap;
+      transition: background 0.15s ease;
+    }
+
+    &__value {
+      flex: 1;
+      padding: 0 var(--space-3);
+      font-size: var(--font-size-body-md);
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.has-file {
+        color: var(--text-primary);
+      }
+    }
+  }
+}

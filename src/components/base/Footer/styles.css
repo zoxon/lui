@@ -1,0 +1,35 @@
+@layer components {
+  .site-footer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-6);
+    border-top: 1px solid var(--border-base);
+    background: var(--fill-surface);
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    box-sizing: border-box;
+
+    &__copyright {
+      font-size: var(--font-size-body-sm);
+      color: var(--text-muted);
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    &__link {
+      font-size: var(--font-size-body-sm);
+      color: var(--text-muted);
+      transition: color 0.1s ease;
+
+      &:hover {
+        color: var(--text-secondary);
+      }
+    }
+  }
+}

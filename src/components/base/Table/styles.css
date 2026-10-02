@@ -1,0 +1,50 @@
+@layer components {
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border-base);
+    border-radius: var(--border-radius-lg);
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-body-md);
+    line-height: var(--line-height-body-md);
+
+    thead th {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      font-size: var(--font-size-label-md);
+      font-weight: var(--font-weight-label-md);
+      color: var(--text-muted);
+      background: var(--fill-surface);
+      border-bottom: 1px solid var(--border-base);
+      white-space: nowrap;
+    }
+
+    tbody {
+      td {
+        padding: var(--space-3) var(--space-4);
+        border-bottom: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+      }
+
+      tr {
+        &:last-child td {
+          border-bottom: none;
+        }
+
+        &:hover td {
+          background: var(--fill-surface);
+        }
+      }
+    }
+
+    &--striped {
+      tbody tr:nth-child(even) td {
+        background: var(--fill-surface);
+      }
+    }
+  }
+}

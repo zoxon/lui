@@ -1,0 +1,68 @@
+@layer components {
+  .user-management {
+    display: grid;
+    gap: var(--space-4);
+    width: 100%;
+  }
+
+  .user-management__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .user-management__search {
+    max-width: 20rem;
+  }
+
+  .user-management__select {
+    display: inline-flex;
+  }
+
+  .user-management__select .checkbox__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .user-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .user-cell__body {
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  .user-cell__meta {
+    color: var(--text-muted);
+  }
+
+  .form {
+    width: min(100%, 42rem);
+  }
+
+  .form__item {
+    margin-bottom: var(--space-5);
+  }
+
+  .form__stack {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .form__actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+}

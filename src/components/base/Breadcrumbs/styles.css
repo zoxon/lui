@@ -1,0 +1,43 @@
+@layer components {
+  .breadcrumbs {
+    color: var(--text-secondary);
+    font-size: var(--font-size-label-md);
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &__item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+
+      &::after {
+        color: var(--text-muted);
+        content: '/';
+      }
+
+      &:last-child::after {
+        content: '';
+      }
+    }
+
+    &__link {
+      color: var(--text-interactive);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__current {
+      color: var(--text-primary);
+    }
+  }
+}

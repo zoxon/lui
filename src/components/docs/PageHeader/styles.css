@@ -1,0 +1,16 @@
+@layer components {
+  .docs-page {
+    &__title {
+      font-size: var(--font-size-heading-h1);
+      font-weight: var(--font-weight-heading-h1);
+      color: var(--text-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    &__desc {
+      font-size: var(--font-size-body-lg);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-8);
+    }
+  }
+}

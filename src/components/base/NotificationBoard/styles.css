@@ -1,0 +1,32 @@
+@layer components {
+  .notification-board {
+    position: fixed;
+    z-index: var(--z-index-tooltip);
+    display: flex;
+    width: calc(var(--space-20) + var(--space-20) + var(--space-20) + var(--space-20) + var(--space-10));
+    max-width: calc(100vw - var(--space-8));
+    flex-direction: column;
+    gap: var(--space-3);
+    pointer-events: none;
+
+    &--position-top-right {
+      top: var(--space-5);
+      right: var(--space-5);
+    }
+
+    &--position-bottom-right {
+      right: var(--space-5);
+      bottom: var(--space-5);
+    }
+
+    &--position-top-left {
+      top: var(--space-5);
+      left: var(--space-5);
+    }
+
+    &--position-bottom-left {
+      bottom: var(--space-5);
+      left: var(--space-5);
+    }
+  }
+}

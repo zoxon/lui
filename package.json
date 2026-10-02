@@ -1,0 +1,50 @@
+{
+  "name": "@zoxon/lui",
+  "version": "1.1.0",
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "exports": {
+    "./config": "./src/config.ts"
+  },
+  "scripts": {
+    "dev": "pnpm lui dev",
+    "build": "pnpm lui build",
+    "lui": "tsx src/cli.ts",
+    "preview": "pnpm lui preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@zoxon/eventor": "1.0.0",
+    "@zoxon/mater": "1.0.0",
+    "@zoxon/nux": "1.1.0",
+    "clsx": "^2.1.1",
+    "highlight.js": "^11.12.0",
+    "navigo": "^8.11.1",
+    "normalize.css": "^8.0.1",
+    "slide-element": "^2.3.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^9.3.0",
+    "@types/node": "^26.2.0",
+    "autoprefixer": "^10.5.4",
+    "eslint": "^10.8.1",
+    "eslint-plugin-format": "^2.0.1",
+    "fast-glob": "^3.3.3",
+    "happy-dom": "^20.11.6",
+    "kleur": "^4.1.5",
+    "postcss": "^8.5.26",
+    "postcss-import": "^17.0.0",
+    "postcss-nested": "^8.0.1",
+    "postcss-sort-media-queries": "^6.7.1",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.12",
+    "typescript": "^6.0.3",
+    "vite": "^8.2.2",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vitest": "^4.1.11"
+  }
+}

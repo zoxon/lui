@@ -1,0 +1,14 @@
+@layer components {
+  .page {
+    display: flex;
+    min-height: 100vh;
+    background: var(--fill-background);
+
+    &__main {
+      flex: 1;
+      padding: var(--space-8) var(--space-10);
+      max-width: 900px;
+      overflow-y: auto;
+    }
+  }
+}
