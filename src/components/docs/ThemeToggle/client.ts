@@ -28,9 +28,27 @@ class ThemeToggleClient extends Component {
       this.applyTheme(next)
     }
 
+    // Follow the OS theme until the user picks one explicitly.
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+    const systemListener = (event: { matches: boolean }) => {
+      if (!localStorage.getItem('theme'))
+        this.applyTheme(event.matches ? 'dark' : 'light')
+    }
+
+    // A page restored from the back/forward cache missed any OS theme change
+    // that happened while it was frozen, and the <head> script does not rerun.
+    const pageShowListener = (event: PageTransitionEvent) => {
+      if (event.persisted)
+        this.applyTheme(this.getInitialTheme())
+    }
+
     this.element.addEventListener('click', triggerListener)
+    systemTheme.addEventListener('change', systemListener)
+    window.addEventListener('pageshow', pageShowListener)
     ;(this.element as ThemeToggleElement).__themeToggleDispose = () => {
       this.element.removeEventListener('click', triggerListener)
+      systemTheme.removeEventListener('change', systemListener)
+      window.removeEventListener('pageshow', pageShowListener)
     }
   }
 
