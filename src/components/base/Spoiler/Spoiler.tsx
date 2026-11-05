@@ -1,18 +1,11 @@
-import type { TemplateResult } from '@zoxon/mater'
-import { raw } from '@zoxon/mater'
+import type { RawHtml, TemplateResult } from '@zoxon/mater'
 import { Icon } from '@/components/base/Icon/index.js'
 
 export interface SpoilerProps {
   label: string
-  children: string | TemplateResult
+  children: string | TemplateResult | RawHtml
   expanded?: boolean
   class?: string
-}
-
-function renderContent(children: string | TemplateResult) {
-  return typeof children === 'string'
-    ? raw(children)
-    : children
 }
 
 export function Spoiler({ label, children, expanded = false, class: className }: SpoilerProps): TemplateResult {
@@ -23,7 +16,7 @@ export function Spoiler({ label, children, expanded = false, class: className }:
         <Icon name="ui/chevron-down" class="spoiler__icon" />
       </summary>
       <div class="spoiler__content" data-ref="spoiler:content">
-        {renderContent(children)}
+        {children}
       </div>
     </details>
   )

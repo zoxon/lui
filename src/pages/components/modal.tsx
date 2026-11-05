@@ -1,9 +1,10 @@
 import type { TemplateResult } from '@zoxon/mater'
+import { Button } from '@/components/base/Button/index.js'
 import { Modal } from '@/components/base/Modal/index.js'
 import { PageHeader, Section } from '@/components/docs/index.js'
 
 export function renderModal(): TemplateResult {
-  const footer = '<button class="button button--variant-solid button--theme-default button--size-sm">Confirm</button>'
+  const footer = <Button label="Confirm" size="sm" />
 
   return (
     <>

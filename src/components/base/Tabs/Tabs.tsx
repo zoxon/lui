@@ -1,6 +1,5 @@
 import type { TemplateResult } from '@zoxon/mater'
 import type { TabsItemNode } from './TabsItem.js'
-import { raw } from '@zoxon/mater'
 
 export interface TabsProps {
   children: TemplateResult | TemplateResult[]
@@ -10,12 +9,6 @@ export interface TabsProps {
 }
 
 let nextTabsId = 0
-
-function renderContent(children: string | TemplateResult) {
-  return typeof children === 'string'
-    ? raw(children)
-    : children
-}
 
 function isTabsItemNode(child: unknown): child is TabsItemNode {
   return typeof child === 'object' && child !== null && (child as { __type?: unknown }).__type === 'tabs-item'
@@ -53,7 +46,7 @@ export function Tabs({ children, variant = 'default', class: className, id }: Ta
         const isActive = index === activeIndex
         const tabId = `${tabsId}-tab-${index}`
         const panelId = `${tabsId}-panel-${index}`
-        return <div class="tabs__panel" id={panelId} role="tabpanel" aria-labelledby={tabId} data-ref="tabs:panel" data-panel={`tab-${index}`} hidden={!isActive}>{renderContent(content)}</div>
+        return <div class="tabs__panel" id={panelId} role="tabpanel" aria-labelledby={tabId} data-ref="tabs:panel" data-panel={`tab-${index}`} hidden={!isActive}>{content}</div>
       })}
     </div>
   )

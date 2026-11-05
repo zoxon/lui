@@ -1,18 +1,11 @@
 import type { TemplateResult } from '@zoxon/mater'
 import type { AccordionItemNode } from './AccordionItem.js'
-import { raw } from '@zoxon/mater'
 import { Icon } from '@/components/base/Icon/index.js'
 
 export interface AccordionProps {
   children: AccordionItemNode | AccordionItemNode[] | TemplateResult | TemplateResult[]
   multiple?: boolean
   class?: string
-}
-
-function renderContent(children: string | TemplateResult) {
-  return typeof children === 'string'
-    ? raw(children)
-    : children
 }
 
 function isAccordionItemNode(child: unknown): child is AccordionItemNode {
@@ -43,7 +36,7 @@ export function Accordion({ children, multiple = false, class: className }: Acco
                 {title}
                 <Icon name="ui/chevron-down" class="accordion__icon" />
               </summary>
-              <div class="accordion__content">{renderContent(content)}</div>
+              <div class="accordion__content">{content}</div>
             </details>
           )
         })

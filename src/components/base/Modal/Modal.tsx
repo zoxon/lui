@@ -1,20 +1,13 @@
-import type { TemplateResult } from '@zoxon/mater'
-import { raw } from '@zoxon/mater'
+import type { RawHtml, TemplateResult } from '@zoxon/mater'
 import { Icon } from '@/components/base/Icon/index.js'
 
 export interface ModalProps {
   title: string
-  children: string | TemplateResult
-  footer?: string // trusted HTML from developer
+  children: string | TemplateResult | RawHtml
+  footer?: string | TemplateResult | RawHtml // string: escaped; wrap trusted HTML in raw()
   id?: string
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
   class?: string
-}
-
-function renderContent(children: string | TemplateResult) {
-  return typeof children === 'string'
-    ? raw(children)
-    : children
 }
 
 export function Modal({ title, children, footer, id, size = 'md', class: className }: ModalProps): TemplateResult {
@@ -30,12 +23,12 @@ export function Modal({ title, children, footer, id, size = 'md', class: classNa
         </div>
 
         <div class="modal__body">
-          {renderContent(children)}
+          {children}
         </div>
 
         {footer && (
           <div class="modal__footer">
-            {raw(footer)}
+            {footer}
           </div>
         )}
       </div>

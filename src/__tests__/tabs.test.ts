@@ -1,3 +1,4 @@
+import { raw } from '@zoxon/mater'
 import { describe, expect, it } from 'vitest'
 import { Tabs, TabsItem } from '../components/base/Tabs/index.js'
 
@@ -5,9 +6,18 @@ describe('tabs', () => {
   it('renders tabs nav and panels', () => {
     const html = Tabs({
       children: [
-        TabsItem({ title: 'Overview', children: '<p>Overview content</p>' }),
-        TabsItem({ title: 'Settings', children: '<p>Settings content</p>' }),
-        TabsItem({ title: 'Billing', children: '<p>Billing content</p>' }),
+        TabsItem({
+          title: 'Overview',
+          children: raw('<p>Overview content</p>'),
+        }),
+        TabsItem({
+          title: 'Settings',
+          children: raw('<p>Settings content</p>'),
+        }),
+        TabsItem({
+          title: 'Billing',
+          children: raw('<p>Billing content</p>'),
+        }),
       ],
     })
     expect(html).toContain('class="tabs"')
@@ -22,9 +32,18 @@ describe('tabs', () => {
   it('renders all tab labels', () => {
     const html = Tabs({
       children: [
-        TabsItem({ title: 'Overview', children: '<p>Overview content</p>' }),
-        TabsItem({ title: 'Settings', children: '<p>Settings content</p>' }),
-        TabsItem({ title: 'Billing', children: '<p>Billing content</p>' }),
+        TabsItem({
+          title: 'Overview',
+          children: raw('<p>Overview content</p>'),
+        }),
+        TabsItem({
+          title: 'Settings',
+          children: raw('<p>Settings content</p>'),
+        }),
+        TabsItem({
+          title: 'Billing',
+          children: raw('<p>Billing content</p>'),
+        }),
       ],
     })
     expect(html).toContain('Overview')
@@ -35,8 +54,14 @@ describe('tabs', () => {
   it('marks first tab as selected by default', () => {
     const html = String(Tabs({
       children: [
-        TabsItem({ title: 'Overview', children: '<p>Overview content</p>' }),
-        TabsItem({ title: 'Settings', children: '<p>Settings content</p>' }),
+        TabsItem({
+          title: 'Overview',
+          children: raw('<p>Overview content</p>'),
+        }),
+        TabsItem({
+          title: 'Settings',
+          children: raw('<p>Settings content</p>'),
+        }),
       ],
     }))
     expect(html).toContain('aria-selected="true"')
@@ -46,9 +71,19 @@ describe('tabs', () => {
   it('marks selected tab as active', () => {
     const html = String(Tabs({
       children: [
-        TabsItem({ title: 'Overview', children: '<p>Overview content</p>' }),
-        TabsItem({ title: 'Settings', selected: true, children: '<p>Settings content</p>' }),
-        TabsItem({ title: 'Billing', children: '<p>Billing content</p>' }),
+        TabsItem({
+          title: 'Overview',
+          children: raw('<p>Overview content</p>'),
+        }),
+        TabsItem({
+          title: 'Settings',
+          selected: true,
+          children: raw('<p>Settings content</p>'),
+        }),
+        TabsItem({
+          title: 'Billing',
+          children: raw('<p>Billing content</p>'),
+        }),
       ],
     }))
     expect(html).toMatch(/<button[^>]*aria-selected="true"[^>]*>Settings<\/button>/)
@@ -57,16 +92,22 @@ describe('tabs', () => {
   it('renders pill variant', () => {
     expect(Tabs({
       children: [
-        TabsItem({ title: 'Overview', children: '<p>Overview content</p>' }),
+        TabsItem({
+          title: 'Overview',
+          children: raw('<p>Overview content</p>'),
+        }),
       ],
       variant: 'pills',
     })).toContain('tabs--variant-pills')
   })
 
-  it('renders panel content (trusted HTML)', () => {
+  it('renders panel content (raw HTML)', () => {
     const html = Tabs({
       children: [
-        TabsItem({ title: 'Overview', children: '<p>Overview content</p>' }),
+        TabsItem({
+          title: 'Overview',
+          children: raw('<p>Overview content</p>'),
+        }),
       ],
     })
     expect(html).toContain('<p>Overview content</p>')
@@ -91,8 +132,15 @@ describe('tabs', () => {
     const html = String(Tabs({
       children: [
         stray,
-        TabsItem({ title: 'Overview', children: '<p>Overview content</p>' }),
-        TabsItem({ title: 'Settings', selected: true, children: '<p>Settings content</p>' }),
+        TabsItem({
+          title: 'Overview',
+          children: raw('<p>Overview content</p>'),
+        }),
+        TabsItem({
+          title: 'Settings',
+          selected: true,
+          children: raw('<p>Settings content</p>'),
+        }),
       ],
     }))
 

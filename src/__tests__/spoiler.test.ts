@@ -1,9 +1,13 @@
+import { raw } from '@zoxon/mater'
 import { describe, expect, it } from 'vitest'
 import { Spoiler } from '../components/base/Spoiler/index.js'
 
 describe('spoiler', () => {
   it('renders spoiler with label and content', () => {
-    const html = Spoiler({ label: 'Show more', children: '<p>Hidden content</p>' })
+    const html = Spoiler({
+      label: 'Show more',
+      children: raw('<p>Hidden content</p>'),
+    })
     expect(html).toContain('class="spoiler"')
     expect(html).toContain('spoiler__trigger')
     expect(html).toContain('spoiler__content')
@@ -12,7 +16,10 @@ describe('spoiler', () => {
   })
 
   it('renders nux data hooks for client runtime wiring', () => {
-    const html = Spoiler({ label: 'Show more', children: '<p>Hidden content</p>' })
+    const html = Spoiler({
+      label: 'Show more',
+      children: raw('<p>Hidden content</p>'),
+    })
 
     expect(html).toContain('data-component="spoiler"')
     expect(html).toContain('data-ref="spoiler:trigger"')
@@ -34,8 +41,11 @@ describe('spoiler', () => {
     expect(closedHtml).not.toContain(' open')
   })
 
-  it('renders content (trusted HTML)', () => {
-    const html = Spoiler({ label: 'x', children: '<strong>bold</strong>' })
+  it('renders content (raw HTML)', () => {
+    const html = Spoiler({
+      label: 'x',
+      children: raw('<strong>bold</strong>'),
+    })
     expect(html).toContain('<strong>bold</strong>')
   })
 

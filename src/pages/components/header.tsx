@@ -1,4 +1,5 @@
 import type { TemplateResult } from '@zoxon/mater'
+import { Button } from '@/components/base/Button/index.js'
 import { Header } from '@/components/base/Header/index.js'
 import { PageHeader, Section } from '@/components/docs/index.js'
 
@@ -15,7 +16,7 @@ export function renderHeader(): TemplateResult {
       <Section
         title="Full header"
         canvasStyle="flex-direction:column;padding:0"
-        canvas={<Header logo="Lui" navLinks={navLinks} actions={'<button class="button button--variant-outline button--theme-default button--size-sm">Sign out</button>'} />}
+        canvas={<Header logo="Lui" navLinks={navLinks} actions={<Button label="Sign out" variant="outline" size="sm" />} />}
         code={`<Header
   logo="Lui"
   navLinks={[
@@ -23,7 +24,7 @@ export function renderHeader(): TemplateResult {
     { label: 'Users', href: '#' },
     { label: 'Settings', href: '#' },
   ]}
-  actions={'<button class="button button--variant-outline button--theme-default button--size-sm">Sign out</button>'}
+  actions={<Button label="Sign out" variant="outline" size="sm" />}
 />`}
       />
       <Section

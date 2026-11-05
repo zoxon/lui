@@ -1,9 +1,13 @@
+import { raw } from '@zoxon/mater'
 import { describe, expect, it } from 'vitest'
 import { Drawer } from '../components/base/Drawer/index.js'
 
 describe('drawer', () => {
   it('renders drawer with title and body', () => {
-    const html = Drawer({ title: 'Filters', children: '<p>Filter content</p>' })
+    const html = Drawer({
+      title: 'Filters',
+      children: raw('<p>Filter content</p>'),
+    })
     expect(html).toContain('drawer-backdrop')
     expect(html).toContain('data-component="drawer"')
     expect(html).toContain('drawer__header')
@@ -25,7 +29,11 @@ describe('drawer', () => {
   })
 
   it('renders footer when provided', () => {
-    const html = Drawer({ title: 'x', children: '', footer: '<button>Apply</button>' })
+    const html = Drawer({
+      title: 'x',
+      children: '',
+      footer: raw('<button>Apply</button>'),
+    })
     expect(html).toContain('drawer__footer')
     expect(html).toContain('<button>Apply</button>')
   })
@@ -34,8 +42,11 @@ describe('drawer', () => {
     expect(Drawer({ title: 'x', children: '' })).not.toContain('drawer__footer')
   })
 
-  it('passes body and footer HTML through without escaping (trusted content)', () => {
-    const html = Drawer({ title: 'x', children: '<strong>bold</strong>' })
+  it('renders raw() body and footer without escaping', () => {
+    const html = Drawer({
+      title: 'x',
+      children: raw('<strong>bold</strong>'),
+    })
     expect(html).toContain('<strong>bold</strong>')
   })
 

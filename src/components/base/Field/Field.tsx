@@ -1,5 +1,4 @@
-import type { TemplateResult } from '@zoxon/mater'
-import { raw } from '@zoxon/mater'
+import type { RawHtml, TemplateResult } from '@zoxon/mater'
 
 export interface FieldProps {
   label: string
@@ -7,7 +6,7 @@ export interface FieldProps {
   hint?: string
   error?: string
   required?: boolean
-  children: string | TemplateResult
+  children: string | TemplateResult | RawHtml
   class?: string
 }
 
@@ -20,9 +19,7 @@ export function Field({ label, id, hint, error, required = false, children, clas
     ]}
     >
       <label class={['field__label', required && 'field__label--required']} for={id}>{label}</label>
-      {typeof children === 'string'
-        ? raw(children)
-        : children}
+      {children}
       {hint && !error
         ? <span class="field__hint">{hint}</span>
         : null}

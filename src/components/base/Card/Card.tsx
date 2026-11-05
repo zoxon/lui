@@ -1,12 +1,11 @@
-import type { TemplateResult } from '@zoxon/mater'
-import { raw } from '@zoxon/mater'
+import type { RawHtml, TemplateResult } from '@zoxon/mater'
 
 export interface CardProps {
   title?: string
   subtitle?: string
-  children: string | TemplateResult
-  footer?: string // trusted HTML from developer
-  actions?: string // trusted HTML from developer (placed in header)
+  children: string | TemplateResult | RawHtml
+  footer?: string | TemplateResult | RawHtml // string: escaped; wrap trusted HTML in raw()
+  actions?: string | TemplateResult | RawHtml // string: escaped; wrap trusted HTML in raw()
   class?: string
 }
 
@@ -21,15 +20,13 @@ export function Card(props: CardProps): TemplateResult {
             <h3 class="card__title">{title}</h3>
             {subtitle && <p class="card__subtitle">{subtitle}</p>}
           </div>
-          {actions && <div class="card__actions">{raw(actions)}</div>}
+          {actions && <div class="card__actions">{actions}</div>}
         </div>
       )}
       <div class="card__body">
-        {typeof children === 'string'
-          ? raw(children)
-          : children}
+        {children}
       </div>
-      {footer && <div class="card__footer">{raw(footer)}</div>}
+      {footer && <div class="card__footer">{footer}</div>}
     </div>
   )
 }

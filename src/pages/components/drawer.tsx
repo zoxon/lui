@@ -1,9 +1,10 @@
 import type { TemplateResult } from '@zoxon/mater'
+import { Button } from '@/components/base/Button/index.js'
 import { Drawer } from '@/components/base/Drawer/index.js'
 import { PageHeader, Section } from '@/components/docs/index.js'
 
 export function renderDrawer(): TemplateResult {
-  const footer = '<button class="button button--variant-solid button--theme-default button--size-sm">Save</button>'
+  const footer = <Button label="Save" size="sm" />
 
   return (
     <>

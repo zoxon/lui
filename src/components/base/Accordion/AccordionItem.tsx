@@ -1,4 +1,4 @@
-import type { TemplateResult } from '@zoxon/mater'
+import type { RawHtml, TemplateResult } from '@zoxon/mater'
 
 /**
  * Plain data describing one `<Accordion>` child. `AccordionItem` is only
@@ -20,13 +20,13 @@ export type AccordionItemNode = TemplateResult & {
   __type: 'accordion-item'
   title: string
   expanded: boolean
-  children: string | TemplateResult
+  children: string | TemplateResult | RawHtml
 }
 
 export interface AccordionItemProps {
   title: string
   expanded?: boolean
-  children: string | TemplateResult
+  children: string | TemplateResult | RawHtml
 }
 
 export function AccordionItem({ title, expanded = false, children }: AccordionItemProps): AccordionItemNode {

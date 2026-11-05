@@ -1,9 +1,12 @@
+import { raw } from '@zoxon/mater'
 import { describe, expect, it } from 'vitest'
 import { Card } from '../components/base/Card/index.js'
 
 describe('card', () => {
   it('renders card with body content', () => {
-    const html = Card({ children: '<p>Hello</p>' })
+    const html = Card({
+      children: raw('<p>Hello</p>'),
+    })
     expect(html).toContain('class="card"')
     expect(html).toContain('card__body')
     expect(html).toContain('<p>Hello</p>')
@@ -28,18 +31,27 @@ describe('card', () => {
   })
 
   it('renders footer when provided', () => {
-    const html = Card({ children: '', footer: '<button>OK</button>' })
+    const html = Card({
+      children: '',
+      footer: raw('<button>OK</button>'),
+    })
     expect(html).toContain('card__footer')
     expect(html).toContain('<button>OK</button>')
   })
 
   it('renders actions in header', () => {
-    const html = Card({ title: 'T', children: '', actions: '<button>Edit</button>' })
+    const html = Card({
+      title: 'T',
+      children: '',
+      actions: raw('<button>Edit</button>'),
+    })
     expect(html).toContain('<button>Edit</button>')
   })
 
-  it('passes string children HTML through without escaping (trusted content)', () => {
-    const html = Card({ children: '<strong>Bold</strong>' })
+  it('renders raw() children without escaping', () => {
+    const html = Card({
+      children: raw('<strong>Bold</strong>'),
+    })
     expect(html).toContain('<strong>Bold</strong>')
   })
 

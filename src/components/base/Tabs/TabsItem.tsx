@@ -1,4 +1,4 @@
-import type { TemplateResult } from '@zoxon/mater'
+import type { RawHtml, TemplateResult } from '@zoxon/mater'
 
 /**
  * Plain data describing one `<Tabs>` child. `TabsItem` is only ever
@@ -19,13 +19,13 @@ export type TabsItemNode = TemplateResult & {
   __type: 'tabs-item'
   title: string
   selected: boolean
-  children: string | TemplateResult
+  children: string | TemplateResult | RawHtml
 }
 
 export interface TabsItemProps {
   title: string
   selected?: boolean
-  children: string | TemplateResult
+  children: string | TemplateResult | RawHtml
 }
 
 export function TabsItem({ title, selected = false, children }: TabsItemProps): TabsItemNode {

@@ -1,9 +1,13 @@
+import { raw } from '@zoxon/mater'
 import { describe, expect, it } from 'vitest'
 import { Modal } from '../components/base/Modal/index.js'
 
 describe('modal', () => {
   it('renders modal with title and body', () => {
-    const html = Modal({ title: 'Confirm', children: '<p>Are you sure?</p>' })
+    const html = Modal({
+      title: 'Confirm',
+      children: raw('<p>Are you sure?</p>'),
+    })
     expect(html).toContain('modal-backdrop')
     expect(html).toContain('data-component="modal"')
     expect(html).toContain('modal__header')
@@ -26,7 +30,11 @@ describe('modal', () => {
   })
 
   it('renders footer when provided', () => {
-    const html = Modal({ title: 'x', children: '', footer: '<button>OK</button>' })
+    const html = Modal({
+      title: 'x',
+      children: '',
+      footer: raw('<button>OK</button>'),
+    })
     expect(html).toContain('modal__footer')
     expect(html).toContain('<button>OK</button>')
   })
@@ -35,8 +43,12 @@ describe('modal', () => {
     expect(Modal({ title: 'x', children: '' })).not.toContain('modal__footer')
   })
 
-  it('passes body and footer HTML through without escaping (trusted content)', () => {
-    const html = Modal({ title: 'x', children: '<strong>bold</strong>', footer: '<em>note</em>' })
+  it('renders raw() body and footer without escaping', () => {
+    const html = Modal({
+      title: 'x',
+      children: raw('<strong>bold</strong>'),
+      footer: raw('<em>note</em>'),
+    })
     expect(html).toContain('<strong>bold</strong>')
     expect(html).toContain('<em>note</em>')
   })

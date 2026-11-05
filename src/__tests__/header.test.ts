@@ -1,3 +1,4 @@
+import { raw } from '@zoxon/mater'
 import { describe, expect, it } from 'vitest'
 import { Header } from '../components/base/Header/index.js'
 
@@ -29,7 +30,11 @@ describe('header', () => {
   })
 
   it('renders actions slot', () => {
-    const html = Header({ logo: 'App', navLinks, actions: '<button>Login</button>' })
+    const html = Header({
+      logo: 'App',
+      navLinks,
+      actions: raw('<button>Login</button>'),
+    })
     expect(html).toContain('site-header__actions')
     expect(html).toContain('<button>Login</button>')
   })

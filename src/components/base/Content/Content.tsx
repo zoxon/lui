@@ -1,11 +1,10 @@
-import type { TemplateResult } from '@zoxon/mater'
-import { raw } from '@zoxon/mater'
+import type { RawHtml, TemplateResult } from '@zoxon/mater'
 
 export interface ContentProps {
-  html: string // trusted HTML from developer — NOT escaped
+  html: RawHtml | TemplateResult // trusted markup — wrap strings in raw()
   class?: string
 }
 
 export function Content({ html: inner, class: className }: ContentProps): TemplateResult {
-  return <div class={['content', className]}>{raw(inner)}</div>
+  return <div class={['content', className]}>{inner}</div>
 }

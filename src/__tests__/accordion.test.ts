@@ -1,3 +1,4 @@
+import { raw } from '@zoxon/mater'
 import { describe, expect, it } from 'vitest'
 import { Accordion, AccordionItem } from '../components/base/Accordion/index.js'
 
@@ -7,9 +8,19 @@ describe('accordion', () => {
   it('renders accordion with items', () => {
     const html = Accordion({
       children: [
-        AccordionItem({ title: 'What is this?', children: '<p>It is a design system.</p>' }),
-        AccordionItem({ title: 'How do I use it?', expanded: true, children: '<p>Import the CSS.</p>' }),
-        AccordionItem({ title: 'Is it free?', children: '<p>Yes.</p>' }),
+        AccordionItem({
+          title: 'What is this?',
+          children: raw('<p>It is a design system.</p>'),
+        }),
+        AccordionItem({
+          title: 'How do I use it?',
+          expanded: true,
+          children: raw('<p>Import the CSS.</p>'),
+        }),
+        AccordionItem({
+          title: 'Is it free?',
+          children: raw('<p>Yes.</p>'),
+        }),
       ],
     })
     expect(html).toContain('class="accordion"')
@@ -22,7 +33,10 @@ describe('accordion', () => {
   it('renders nux data hooks for client runtime wiring', () => {
     const html = Accordion({
       children: [
-        AccordionItem({ title: 'What is this?', children: '<p>It is a design system.</p>' }),
+        AccordionItem({
+          title: 'What is this?',
+          children: raw('<p>It is a design system.</p>'),
+        }),
       ],
     })
 
@@ -32,9 +46,18 @@ describe('accordion', () => {
   it('renders all item labels', () => {
     const html = Accordion({
       children: [
-        AccordionItem({ title: 'What is this?', children: '<p>It is a design system.</p>' }),
-        AccordionItem({ title: 'How do I use it?', children: '<p>Import the CSS.</p>' }),
-        AccordionItem({ title: 'Is it free?', children: '<p>Yes.</p>' }),
+        AccordionItem({
+          title: 'What is this?',
+          children: raw('<p>It is a design system.</p>'),
+        }),
+        AccordionItem({
+          title: 'How do I use it?',
+          children: raw('<p>Import the CSS.</p>'),
+        }),
+        AccordionItem({
+          title: 'Is it free?',
+          children: raw('<p>Yes.</p>'),
+        }),
       ],
     })
     expect(html).toContain('What is this?')
@@ -45,7 +68,10 @@ describe('accordion', () => {
   it('uses <details> and <summary> elements', () => {
     const html = Accordion({
       children: [
-        AccordionItem({ title: 'What is this?', children: '<p>It is a design system.</p>' }),
+        AccordionItem({
+          title: 'What is this?',
+          children: raw('<p>It is a design system.</p>'),
+        }),
       ],
     })
     expect(html).toContain('<details')
@@ -55,7 +81,11 @@ describe('accordion', () => {
   it('renders open state for items with expanded=true', () => {
     const html = Accordion({
       children: [
-        AccordionItem({ title: 'How do I use it?', expanded: true, children: '<p>Import the CSS.</p>' }),
+        AccordionItem({
+          title: 'How do I use it?',
+          expanded: true,
+          children: raw('<p>Import the CSS.</p>'),
+        }),
       ],
     })
     expect(html).toContain('<details class="accordion__item" open')
@@ -88,10 +118,13 @@ describe('accordion', () => {
     })).not.toContain('data-single')
   })
 
-  it('renders item content (trusted HTML)', () => {
+  it('renders item content (raw HTML)', () => {
     const html = Accordion({
       children: [
-        AccordionItem({ title: 'What is this?', children: '<p>It is a design system.</p>' }),
+        AccordionItem({
+          title: 'What is this?',
+          children: raw('<p>It is a design system.</p>'),
+        }),
       ],
     })
     expect(html).toContain('<p>It is a design system.</p>')
@@ -116,7 +149,10 @@ describe('accordion', () => {
     const html = String(Accordion({
       children: [
         stray,
-        AccordionItem({ title: 'What is this?', children: '<p>It is a design system.</p>' }),
+        AccordionItem({
+          title: 'What is this?',
+          children: raw('<p>It is a design system.</p>'),
+        }),
       ],
     }))
 

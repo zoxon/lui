@@ -1,9 +1,13 @@
+import { raw } from '@zoxon/mater'
 import { describe, expect, it } from 'vitest'
 import { Field } from '../components/base/Field/index.js'
 
 describe('field', () => {
   it('renders wrapper with label and children', () => {
-    const html = Field({ label: 'Email', children: '<input type="text">' })
+    const html = Field({
+      label: 'Email',
+      children: raw('<input type="text">'),
+    })
     expect(html).toContain('class="field"')
     expect(html).toContain('Email')
     expect(html).toContain('<input type="text">')
@@ -43,8 +47,11 @@ describe('field', () => {
     expect(html).toContain('field__label--required')
   })
 
-  it('renders children as trusted HTML (not escaped)', () => {
-    const html = Field({ label: 'x', children: '<input class="field__input">' })
+  it('renders raw() children without escaping', () => {
+    const html = Field({
+      label: 'x',
+      children: raw('<input class="field__input">'),
+    })
     expect(html).toContain('<input class="field__input">')
   })
 

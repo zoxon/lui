@@ -1,20 +1,13 @@
-import type { TemplateResult } from '@zoxon/mater'
-import { raw } from '@zoxon/mater'
+import type { RawHtml, TemplateResult } from '@zoxon/mater'
 import { Icon } from '@/components/base/Icon/index.js'
 
 export interface DrawerProps {
   title: string
-  children: string | TemplateResult
-  footer?: string // trusted HTML from developer
+  children: string | TemplateResult | RawHtml
+  footer?: string | TemplateResult | RawHtml // string: escaped; wrap trusted HTML in raw()
   id?: string
   side?: 'left' | 'right' | 'top' | 'bottom'
   class?: string
-}
-
-function renderContent(children: string | TemplateResult) {
-  return typeof children === 'string'
-    ? raw(children)
-    : children
 }
 
 export function Drawer({ title, children, footer, id, side = 'right', class: className }: DrawerProps): TemplateResult {
@@ -28,12 +21,12 @@ export function Drawer({ title, children, footer, id, side = 'right', class: cla
         </div>
 
         <div class="drawer__body">
-          {renderContent(children)}
+          {children}
         </div>
 
         {footer && (
           <div class="drawer__footer">
-            {raw(footer)}
+            {footer}
           </div>
         )}
       </aside>

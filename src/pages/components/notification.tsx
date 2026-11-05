@@ -1,4 +1,5 @@
 import type { TemplateResult } from '@zoxon/mater'
+import { raw } from '@zoxon/mater'
 import { Content } from '@/components/base/Content/index.js'
 import { Notification } from '@/components/base/Notification/index.js'
 import { NotificationBoard } from '@/components/base/NotificationBoard/index.js'
@@ -194,7 +195,7 @@ dispatchCustomEvent('notification:show', {
   type: 'success',
 })`}
       />
-      <Content html={optionsContent} />
+      <Content html={raw(optionsContent)} />
     </>
   )
 }

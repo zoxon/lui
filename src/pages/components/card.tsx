@@ -1,4 +1,5 @@
 import type { TemplateResult } from '@zoxon/mater'
+import { Button } from '@/components/base/Button/index.js'
 import { Card } from '@/components/base/Card/index.js'
 import { PageHeader, Section } from '@/components/docs/index.js'
 
@@ -11,16 +12,16 @@ export function renderCard(): TemplateResult {
         canvas={(
           <Card
             title="Card Title"
-            footer="<span>Footer content</span>"
+            footer={<span>Footer content</span>}
           >
-            {'<p>This is the card body content. It can contain any HTML.</p>'}
+            <p>This is the card body content. It can contain any HTML.</p>
           </Card>
         )}
         code={`<Card
   title="Card Title"
-  footer="<span>Footer content</span>"
+  footer={<span>Footer content</span>}
 >
-  {'<p>This is the card body content.</p>'}
+  <p>This is the card body content.</p>
 </Card>`}
       />
       <Section
@@ -29,23 +30,23 @@ export function renderCard(): TemplateResult {
           <Card
             title="Dashboard"
             subtitle="Overview of your account"
-            actions={'<button class="button button--variant-outline button--theme-default button--size-sm">Edit</button>'}
+            actions={<Button label="Edit" variant="outline" size="sm" />}
           >
-            {'<p>Key metrics and activity are shown here.</p>'}
+            <p>Key metrics and activity are shown here.</p>
           </Card>
         )}
         code={`<Card
   title="Dashboard"
   subtitle="Overview of your account"
-  actions={'<button class="button button--variant-outline button--theme-default button--size-sm">Edit</button>'}
+  actions={<Button label="Edit" variant="outline" size="sm" />}
 >
-  {'<p>Key metrics and activity.</p>'}
+  <p>Key metrics and activity.</p>
 </Card>`}
       />
       <Section
         title="Body-only card"
-        canvas={<Card>{'<p>A minimal card with just a body.</p>'}</Card>}
-        code={`<Card>{'<p>A minimal card with just a body.</p>'}</Card>`}
+        canvas={<Card><p>A minimal card with just a body.</p></Card>}
+        code="<Card><p>A minimal card with just a body.</p></Card>"
       />
     </>
   )

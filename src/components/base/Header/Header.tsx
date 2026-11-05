@@ -1,5 +1,4 @@
-import type { TemplateResult } from '@zoxon/mater'
-import { raw } from '@zoxon/mater'
+import type { RawHtml, TemplateResult } from '@zoxon/mater'
 
 export interface NavLink {
   label: string
@@ -10,7 +9,7 @@ export interface NavLink {
 export interface HeaderProps {
   logo: string
   navLinks: NavLink[]
-  actions?: string // trusted HTML from developer
+  actions?: string | TemplateResult | RawHtml // string: escaped; wrap trusted HTML in raw()
   class?: string
 }
 
@@ -25,7 +24,7 @@ export function Header({ logo, navLinks, actions, class: className }: HeaderProp
       <nav class="site-header__nav">{linksHtml}</nav>
       {actions && (
         <div class="site-header__actions">
-          {raw(actions)}
+          {actions}
         </div>
       )}
     </header>
