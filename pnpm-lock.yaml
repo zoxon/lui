@@ -22,8 +22,8 @@ importers:
         specifier: 1.0.0
         version: 1.0.0
       '@zoxon/mater':
-        specifier: 1.0.0
-        version: 1.0.0
+        specifier: 1.1.0
+        version: 1.1.0
       '@zoxon/nux':
         specifier: 1.1.0
         version: 1.1.0
@@ -884,8 +884,8 @@ packages:
   '@zoxon/eventor@1.0.0':
     resolution: {integrity: sha512-Do6DvIlmH6NkrW9bAND0i53eQv4ES4TdnqYq6cg4dkXV8WS+q92lgycWvS44V1FtNaoObp+8S3aCtymZSiSM0A==}
 
-  '@zoxon/mater@1.0.0':
-    resolution: {integrity: sha512-TW6uKgHurNlFJbvygNkmJp5yET3uAMunyBCEdVEgG/d9GbM0H7C81io/noHTilnEO2vtrXs7GnVP9mjXm9p1Bw==}
+  '@zoxon/mater@1.1.0':
+    resolution: {integrity: sha512-sB8biGoRj71vWCQurDCj6BjCX/X1ECjCRqdvFbmryChiBlIipwVVOpfCiXuoZmaDYDPwLA5wbkf0K7FHceUxKA==}
     engines: {node: '>=18'}
 
   '@zoxon/nux@1.1.0':
@@ -3510,7 +3510,7 @@ snapshots:
 
   '@zoxon/eventor@1.0.0': {}
 
-  '@zoxon/mater@1.0.0':
+  '@zoxon/mater@1.1.0':
     dependencies:
       clsx: 2.1.1
 

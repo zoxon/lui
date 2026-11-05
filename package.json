@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@zoxon/eventor": "1.0.0",
-    "@zoxon/mater": "1.0.0",
+    "@zoxon/mater": "1.1.0",
     "@zoxon/nux": "1.1.0",
     "clsx": "^2.1.1",
     "highlight.js": "^11.12.0",
