@@ -118,7 +118,9 @@ describe('task 3 nux runtime', () => {
 
     Object.defineProperty(input, 'files', {
       configurable: true,
-      value: [{ name: 'resume.pdf' }],
+      value: [
+        { name: 'resume.pdf' },
+      ],
     })
 
     input?.dispatchEvent(new Event('change', { bubbles: true }))
@@ -141,7 +143,10 @@ describe('task 3 nux runtime', () => {
 
     Object.defineProperty(input, 'files', {
       configurable: true,
-      value: [{ name: 'one.pdf' }, { name: 'two.pdf' }],
+      value: [
+        { name: 'one.pdf' },
+        { name: 'two.pdf' },
+      ],
     })
 
     input?.dispatchEvent(new Event('change', { bubbles: true }))
@@ -218,7 +223,9 @@ describe('task 3 nux runtime', () => {
 
     Object.defineProperty(input, 'files', {
       configurable: true,
-      value: [{ name: 'resume.pdf' }],
+      value: [
+        { name: 'resume.pdf' },
+      ],
     })
 
     input?.dispatchEvent(new Event('change', { bubbles: true }))

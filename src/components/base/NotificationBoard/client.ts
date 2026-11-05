@@ -24,7 +24,7 @@ export function getNotificationBoardClient(): NotificationBoardClient {
   const instance = getInstance(element)
 
   if (!(instance instanceof NotificationBoardClient))
-    throw new Error('NotificationBoard is not initialized')
+    throw new TypeError('NotificationBoard is not initialized')
 
   return instance
 }
@@ -107,7 +107,9 @@ class NotificationBoardClient extends Component {
   private get delay(): number {
     const delay = Number(this.element.dataset.notificationDelay)
 
-    return Number.isFinite(delay) ? delay : DEFAULT_DELAY
+    return Number.isFinite(delay)
+      ? delay
+      : DEFAULT_DELAY
   }
 
   private accepts(detail: ShowNotificationEventDetail): boolean {

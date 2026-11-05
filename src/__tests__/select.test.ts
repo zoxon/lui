@@ -38,7 +38,12 @@ describe('select', () => {
   })
 
   it('renders multiple selected values', () => {
-    const html = Select({ label: 'x', options, multiple: true, value: ['a', 'c'] })
+    const html = Select({
+      label: 'x',
+      options,
+      multiple: true,
+      value: ['a', 'c'],
+    })
     expect(html).toContain('value="a" selected')
     expect(html).toContain('value="c" selected')
     expect(html).not.toContain('value="b" selected')
@@ -65,13 +70,23 @@ describe('select', () => {
   })
 
   it('escapes HTML in option labels', () => {
-    const html = Select({ label: 'x', options: [{ value: 'x', label: '<b>bold</b>' }] })
+    const html = Select({
+      label: 'x',
+      options: [
+        { value: 'x', label: '<b>bold</b>' },
+      ],
+    })
     expect(html).not.toContain('<b>')
     expect(html).toContain('&lt;b&gt;')
   })
 
   it('escapes HTML in option values', () => {
-    const html = Select({ label: 'x', options: [{ value: '"x"', label: 'x' }] })
+    const html = Select({
+      label: 'x',
+      options: [
+        { value: '"x"', label: 'x' },
+      ],
+    })
     expect(html).toContain('&quot;x&quot;')
   })
 })

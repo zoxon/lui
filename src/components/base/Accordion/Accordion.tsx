@@ -10,7 +10,9 @@ export interface AccordionProps {
 }
 
 function renderContent(children: string | TemplateResult) {
-  return typeof children === 'string' ? raw(children) : children
+  return typeof children === 'string'
+    ? raw(children)
+    : children
 }
 
 function isAccordionItemNode(child: unknown): child is AccordionItemNode {
@@ -18,13 +20,17 @@ function isAccordionItemNode(child: unknown): child is AccordionItemNode {
 }
 
 export function Accordion({ children, multiple = false, class: className }: AccordionProps): TemplateResult {
-  const items = (Array.isArray(children) ? children : [children]).filter(isAccordionItemNode)
+  const items = (Array.isArray(children)
+    ? children
+    : [children]).filter(isAccordionItemNode)
 
   return (
     <div
       class={['accordion', className]}
       data-component="accordion"
-      data-single={!multiple ? 'true' : null}
+      data-single={!multiple
+        ? 'true'
+        : null}
     >
       {
         items.map(({ __type, title, expanded, children: content }) => {

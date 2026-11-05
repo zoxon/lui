@@ -36,7 +36,9 @@ describe('footer', () => {
   it('escapes HTML in link labels and hrefs', () => {
     const html = Footer({
       copyright: '©',
-      links: [{ label: '<script>', href: '"><script>' }],
+      links: [
+        { label: '<script>', href: '"><script>' },
+      ],
     })
     expect(html).not.toContain('<script>')
     expect(html).toContain('&lt;script&gt;')

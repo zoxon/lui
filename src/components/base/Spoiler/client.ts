@@ -28,7 +28,9 @@ class SpoilerClient extends Component {
       if (this.isAnimating || !this.content)
         return
 
-      void (this.element.hasAttribute('open') ? this.collapse() : this.expand())
+      void (this.element.hasAttribute('open')
+        ? this.collapse()
+        : this.expand())
     }
 
     this.trigger.addEventListener('click', this.triggerListener)

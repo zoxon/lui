@@ -116,7 +116,9 @@ class AccordionClient extends Component {
         })
     }
 
-    void (isOpen ? this.collapse(item) : this.expand(item))
+    void (isOpen
+      ? this.collapse(item)
+      : this.expand(item))
   }
 }
 

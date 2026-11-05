@@ -33,7 +33,9 @@ describe('descriptionList', () => {
 
   it('escapes a plain string value by default (not trusted HTML)', () => {
     const html = DescriptionList({
-      items: [{ label: 'Bio', value: '<img src=x onerror=alert(1)>' }],
+      items: [
+        { label: 'Bio', value: '<img src=x onerror=alert(1)>' },
+      ],
     })
     expect(html).not.toContain('<img src=x onerror=alert(1)>')
     expect(html).toContain('&lt;img')
@@ -41,13 +43,22 @@ describe('descriptionList', () => {
 
   it('renders explicit trusted markup passed via raw()', () => {
     const html = DescriptionList({
-      items: [{ label: 'Status', value: raw('<span class="badge badge--theme-success">Active</span>') }],
+      items: [
+        {
+          label: 'Status',
+          value: raw('<span class="badge badge--theme-success">Active</span>'),
+        },
+      ],
     })
     expect(html).toContain('<span class="badge badge--theme-success">Active</span>')
   })
 
   it('escapes HTML in label', () => {
-    const html = DescriptionList({ items: [{ label: '<b>Label</b>', value: 'v' }] })
+    const html = DescriptionList({
+      items: [
+        { label: '<b>Label</b>', value: 'v' },
+      ],
+    })
     expect(html).not.toContain('<b>')
     expect(html).toContain('&lt;b&gt;')
   })

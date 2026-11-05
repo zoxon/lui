@@ -14,11 +14,15 @@ export function Section({ title, canvas, code, canvasStyle, desc }: SectionProps
   return (
     <div class="docs-section">
       <h2 class="docs-section__title">{title}</h2>
-      {desc ? <p class="docs-page__desc" style="margin-bottom:var(--spacing-3)">{raw(desc)}</p> : null}
+      {desc
+        ? <p class="docs-page__desc" style="margin-bottom:var(--spacing-3)">{raw(desc)}</p>
+        : null}
 
       <div class="docs-preview">
         <div class="docs-preview__canvas" style={canvasStyle}>
-          {typeof canvas === 'string' ? raw(canvas) : canvas}
+          {typeof canvas === 'string'
+            ? raw(canvas)
+            : canvas}
         </div>
         {code !== undefined
           ? <div class="docs-preview__code"><CodeBlock code={code} lang="tsx" /></div>

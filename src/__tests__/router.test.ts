@@ -92,7 +92,9 @@ describe('app router contract', () => {
   })
 
   it('exposes an adapter interface independent from Navigo', () => {
-    const router = createAppRouter({ mountPage: () => undefined })
+    const router = createAppRouter({
+      mountPage: () => undefined,
+    })
 
     expect(router.path('docs-rendering')).toBe('/docs/rendering')
     expect(router.start).toEqual(expect.any(Function))

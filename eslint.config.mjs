@@ -28,7 +28,10 @@ export default antfu({
   rules: {
     // Allow unused vars prefixed with _ (TypeScript convention)
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+    ],
 
     // html`` tag function returns .value — keep template literals flexible
     'no-template-curly-in-string': 'off',

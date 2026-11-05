@@ -34,7 +34,13 @@ describe('breadcrumbs', () => {
   })
 
   it('supports custom aria label and class', () => {
-    const html = Breadcrumbs({ label: 'Path', class: 'page__breadcrumbs', items: [{ label: 'Page' }] })
+    const html = Breadcrumbs({
+      label: 'Path',
+      class: 'page__breadcrumbs',
+      items: [
+        { label: 'Page' },
+      ],
+    })
     expect(html).toContain('aria-label="Path"')
     expect(html).toContain('class="breadcrumbs page__breadcrumbs"')
   })

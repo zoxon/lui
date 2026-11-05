@@ -16,7 +16,9 @@ export function createViteConfig(projectRoot: string, overrides: UserConfig = {}
     },
     plugins: [
       createSvgIconsPlugin({
-        iconDirs: [resolve(projectRoot, 'src/icons')],
+        iconDirs: [
+          resolve(projectRoot, 'src/icons'),
+        ],
         symbolId: 'icon-[dir]-[name]',
       }),
     ],
@@ -32,7 +34,9 @@ export function createViteConfig(projectRoot: string, overrides: UserConfig = {}
         resolve(projectRoot, 'src/__tests__/**/*.test.ts'),
         resolve(projectRoot, 'src/__tests__/**/*.test.tsx'),
       ],
-      setupFiles: [resolve(projectRoot, 'src/__tests__/setup.ts')],
+      setupFiles: [
+        resolve(projectRoot, 'src/__tests__/setup.ts'),
+      ],
     },
   }, overrides)
 }

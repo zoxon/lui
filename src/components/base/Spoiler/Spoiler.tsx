@@ -10,7 +10,9 @@ export interface SpoilerProps {
 }
 
 function renderContent(children: string | TemplateResult) {
-  return typeof children === 'string' ? raw(children) : children
+  return typeof children === 'string'
+    ? raw(children)
+    : children
 }
 
 export function Spoiler({ label, children, expanded = false, class: className }: SpoilerProps): TemplateResult {

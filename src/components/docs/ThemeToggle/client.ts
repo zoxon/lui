@@ -21,7 +21,9 @@ class ThemeToggleClient extends Component {
     this.disposePreviousListener()
 
     const triggerListener = () => {
-      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
+      const next = document.documentElement.dataset.theme === 'dark'
+        ? 'light'
+        : 'dark'
       localStorage.setItem('theme', next)
       this.applyTheme(next)
     }
@@ -43,7 +45,9 @@ class ThemeToggleClient extends Component {
     if (saved === 'dark' || saved === 'light')
       return saved
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'
   }
 
   private applyTheme(theme: Theme): void {

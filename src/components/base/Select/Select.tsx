@@ -40,7 +40,11 @@ export function Select(props: SelectProps): TemplateResult {
   } = props
 
   const fieldId = id ?? name
-  const selectedValues = Array.isArray(value) ? value : value ? [value] : []
+  const selectedValues = Array.isArray(value)
+    ? value
+    : value
+      ? [value]
+      : []
 
   const optionsHtml = options.map(opt =>
     <option value={opt.value} selected={selectedValues.includes(opt.value)} disabled={opt.disabled}>{opt.label}</option>,

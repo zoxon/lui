@@ -44,7 +44,9 @@ function highlightCode(code: string, lang?: string): string | null {
 
 export function CodeBlock(props: CodeBlockProps): TemplateResult {
   const { code, lang, filename, terminal = false, highlight = true, class: className } = props
-  const highlighted = highlight ? highlightCode(code, lang) : null
+  const highlighted = highlight
+    ? highlightCode(code, lang)
+    : null
 
   return (
     <div class={['code-block', terminal && 'code-block--terminal', className]}>
@@ -54,8 +56,13 @@ export function CodeBlock(props: CodeBlockProps): TemplateResult {
         </div>
       )}
       <pre class="code-block__pre">
-        <code class={lang ? `language-${lang}` : undefined}>
-          {highlighted ? raw(highlighted) : code}
+        <code class={lang
+          ? `language-${lang}`
+          : undefined}
+        >
+          {highlighted
+            ? raw(highlighted)
+            : code}
         </code>
       </pre>
     </div>

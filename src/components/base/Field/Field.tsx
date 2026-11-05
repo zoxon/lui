@@ -13,11 +13,22 @@ export interface FieldProps {
 
 export function Field({ label, id, hint, error, required = false, children, class: className }: FieldProps): TemplateResult {
   return (
-    <div class={['field', { 'field--error': error }, className]}>
+    <div class={[
+      'field',
+      { 'field--error': error },
+      className,
+    ]}
+    >
       <label class={['field__label', required && 'field__label--required']} for={id}>{label}</label>
-      {typeof children === 'string' ? raw(children) : children}
-      {hint && !error ? <span class="field__hint">{hint}</span> : null}
-      {error ? (<span class="field__error">{error}</span>) : null}
+      {typeof children === 'string'
+        ? raw(children)
+        : children}
+      {hint && !error
+        ? <span class="field__hint">{hint}</span>
+        : null}
+      {error
+        ? (<span class="field__error">{error}</span>)
+        : null}
     </div>
   )
 }

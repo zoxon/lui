@@ -39,7 +39,10 @@ describe('runCommand', () => {
         throw new Error('build failed')
       })
 
-      await expect(runCommand('build', { ...config, outDir: join(root, 'dist') }, root, { build })).rejects.toThrow('build failed')
+      await expect(runCommand('build', {
+        ...config,
+        outDir: join(root, 'dist'),
+      }, root, { build })).rejects.toThrow('build failed')
       await expect(access(temporaryDir)).rejects.toThrow()
     }
     finally {
@@ -60,7 +63,9 @@ describe('runCommand', () => {
   })
 
   it('previews the configured output directory', async () => {
-    const preview = vi.fn().mockResolvedValue({ printUrls: vi.fn() })
+    const preview = vi.fn().mockResolvedValue({
+      printUrls: vi.fn(),
+    })
 
     await runCommand('preview', { ...config, outDir: '/project/public' }, '/project', { preview })
 

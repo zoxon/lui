@@ -10,7 +10,11 @@ export function PageHeader({ title, desc }: PageHeaderProps): TemplateResult {
   return (
     <>
       <h1 class="docs-page__title">{title}</h1>
-      <p class="docs-page__desc">{typeof desc === 'string' ? raw(desc) : desc}</p>
+      <p class="docs-page__desc">
+        {typeof desc === 'string'
+          ? raw(desc)
+          : desc}
+      </p>
     </>
   )
 }

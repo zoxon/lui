@@ -12,7 +12,9 @@ export interface ModalProps {
 }
 
 function renderContent(children: string | TemplateResult) {
-  return typeof children === 'string' ? raw(children) : children
+  return typeof children === 'string'
+    ? raw(children)
+    : children
 }
 
 export function Modal({ title, children, footer, id, size = 'md', class: className }: ModalProps): TemplateResult {

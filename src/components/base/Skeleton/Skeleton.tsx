@@ -20,8 +20,16 @@ export function Skeleton(props: SkeletonProps): TemplateResult {
 
   return (
     <span
-      class={['skeleton', `skeleton--variant-${variant}`, size && `skeleton--size-${size}`, animated && 'skeleton--animated', className]}
-      style={width ? { width } : undefined}
+      class={[
+        'skeleton',
+        `skeleton--variant-${variant}`,
+        size && `skeleton--size-${size}`,
+        animated && 'skeleton--animated',
+        className,
+      ]}
+      style={width
+        ? { width }
+        : undefined}
       aria-hidden="true"
     >
     </span>

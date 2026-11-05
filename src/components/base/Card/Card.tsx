@@ -24,7 +24,11 @@ export function Card(props: CardProps): TemplateResult {
           {actions && <div class="card__actions">{raw(actions)}</div>}
         </div>
       )}
-      <div class="card__body">{typeof children === 'string' ? raw(children) : children}</div>
+      <div class="card__body">
+        {typeof children === 'string'
+          ? raw(children)
+          : children}
+      </div>
       {footer && <div class="card__footer">{raw(footer)}</div>}
     </div>
   )

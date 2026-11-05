@@ -20,7 +20,9 @@ export function Alert(props: AlertProps): TemplateResult {
 
   return (
     <div class={['alert', `alert--theme-${theme}`, className]} role="status">
-      {title ? <div class="alert__title">{title}</div> : null}
+      {title
+        ? <div class="alert__title">{title}</div>
+        : null}
       <div class="alert__body">{children}</div>
       {closable
         ? (

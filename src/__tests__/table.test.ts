@@ -42,8 +42,12 @@ describe('table', () => {
 
   it('escapes HTML-like table cell text', () => {
     const html = Table({
-      columns: [{ key: 'name', label: 'Name' }],
-      rows: [{ name: '<img src=x onerror=alert(1)>' }],
+      columns: [
+        { key: 'name', label: 'Name' },
+      ],
+      rows: [
+        { name: '<img src=x onerror=alert(1)>' },
+      ],
     })
 
     expect(html).toContain('&lt;img src=x onerror=alert(1)&gt;')
@@ -52,8 +56,12 @@ describe('table', () => {
 
   it('escapes HTML in column labels', () => {
     const html = Table({
-      columns: [{ key: 'x', label: '<b>Name</b>' }],
-      rows: [{ x: 'val' }],
+      columns: [
+        { key: 'x', label: '<b>Name</b>' },
+      ],
+      rows: [
+        { x: 'val' },
+      ],
     })
     expect(html).not.toContain('<b>')
     expect(html).toContain('&lt;b&gt;')

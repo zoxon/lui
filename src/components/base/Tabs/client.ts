@@ -58,7 +58,9 @@ class TabsClient extends Component {
 
     this.tabs.forEach((tab) => {
       tab.setAttribute('aria-selected', String(tab.dataset.tab === id))
-      tab.tabIndex = tab.dataset.tab === id ? 0 : -1
+      tab.tabIndex = tab.dataset.tab === id
+        ? 0
+        : -1
     })
 
     this.panels.forEach((panel) => {
@@ -71,7 +73,15 @@ class TabsClient extends Component {
     const count = this.tabs.length
     if (index < 0 || count === 0)
       return
-    const target = event.key === 'ArrowRight' ? (index + 1) % count : event.key === 'ArrowLeft' ? (index - 1 + count) % count : event.key === 'Home' ? 0 : event.key === 'End' ? count - 1 : -1
+    const target = event.key === 'ArrowRight'
+      ? (index + 1) % count
+      : event.key === 'ArrowLeft'
+        ? (index - 1 + count) % count
+        : event.key === 'Home'
+          ? 0
+          : event.key === 'End'
+            ? count - 1
+            : -1
     if (target < 0)
       return
     event.preventDefault()

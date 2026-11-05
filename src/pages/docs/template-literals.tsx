@@ -43,7 +43,15 @@ html\`<ul>\${list.map(item => html\`<li>\${item}</li>\`)}</ul>\``}
         canvasStyle="flex-direction:column;align-items:stretch;width:100%"
         canvas={(
           <CodeBlock
-            code={html`<button attrs=${{ disabled: true, class: ['button', 'button--variant-outline', 'button--theme-default', 'button--size-md'] }}>${raw('<strong>Save</strong>')}</button>`.html.value}
+            code={html`<button attrs=${{
+              disabled: true,
+              class: [
+                'button',
+                'button--variant-outline',
+                'button--theme-default',
+                'button--size-md',
+              ],
+            }}>${raw('<strong>Save</strong>')}</button>`.html.value}
             lang="html"
           />
         )}

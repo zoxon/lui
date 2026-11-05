@@ -16,7 +16,12 @@ describe('radio', () => {
   })
 
   it('uses an explicit id over the derived one', () => {
-    const html = Radio({ label: 'Small', value: 'sm', name: 'size', id: 'size-small' })
+    const html = Radio({
+      label: 'Small',
+      value: 'sm',
+      name: 'size',
+      id: 'size-small',
+    })
     expect(html).toContain('id="size-small"')
     expect(html).toContain('for="size-small"')
   })
@@ -30,12 +35,27 @@ describe('radio', () => {
   })
 
   it('renders checked state', () => {
-    expect(Radio({ label: 'x', value: 'sm', name: 'size', checked: true })).toContain(' checked')
-    expect(Radio({ label: 'x', value: 'sm', name: 'size', checked: false })).not.toContain(' checked')
+    expect(Radio({
+      label: 'x',
+      value: 'sm',
+      name: 'size',
+      checked: true,
+    })).toContain(' checked')
+    expect(Radio({
+      label: 'x',
+      value: 'sm',
+      name: 'size',
+      checked: false,
+    })).not.toContain(' checked')
   })
 
   it('renders disabled state', () => {
-    const html = Radio({ label: 'x', value: 'sm', name: 'size', disabled: true })
+    const html = Radio({
+      label: 'x',
+      value: 'sm',
+      name: 'size',
+      disabled: true,
+    })
     expect(html).toContain(' disabled')
     expect(html).toContain('radio--disabled')
   })
@@ -47,6 +67,11 @@ describe('radio', () => {
   })
 
   it('appends extra class', () => {
-    expect(Radio({ label: 'x', value: 'sm', name: 'size', class: 'my-class' })).toContain('my-class')
+    expect(Radio({
+      label: 'x',
+      value: 'sm',
+      name: 'size',
+      class: 'my-class',
+    })).toContain('my-class')
   })
 })

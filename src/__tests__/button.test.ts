@@ -24,7 +24,12 @@ describe('button', () => {
   })
 
   it('applies shape modifiers', () => {
-    expect(Button({ label: 'x', pill: true, rounded: true, block: true })).toContain('button--pill button--rounded button--block')
+    expect(Button({
+      label: 'x',
+      pill: true,
+      rounded: true,
+      block: true,
+    })).toContain('button--pill button--rounded button--block')
   })
 
   it('adds disabled attribute when disabled=true', () => {

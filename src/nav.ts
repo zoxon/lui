@@ -13,7 +13,9 @@ export const NAV_GROUPS: NavGroup[] = [
   },
   {
     section: 'Tokens',
-    items: [{ label: 'Colors & Tokens', page: 'tokens' }],
+    items: [
+      { label: 'Colors & Tokens', page: 'tokens' },
+    ],
   },
   {
     section: 'Examples',

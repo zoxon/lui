@@ -21,24 +21,34 @@ interface ManifestEntry {
 }
 
 export function getOutputFile(pathname: string): string {
-  return pathname === '/' ? 'index.html' : `${pathname.slice(1)}/index.html`
+  return pathname === '/'
+    ? 'index.html'
+    : `${pathname.slice(1)}/index.html`
 }
 
 export function getAssetPath(outputFile: string, asset: string, base = '/'): string {
   if (base === './') {
     const directory = dirname(outputFile)
-    const depth = directory === '.' ? 0 : directory.split('/').length
+    const depth = directory === '.'
+      ? 0
+      : directory.split('/').length
     return `${'../'.repeat(depth)}${asset}`
   }
 
-  return `${base.endsWith('/') ? base : `${base}/`}${asset}`
+  return `${base.endsWith('/')
+    ? base
+    : `${base}/`}${asset}`
 }
 
 async function findIconFiles(directory: string): Promise<string[]> {
   const entries = await readdir(directory, { withFileTypes: true })
   const files = await Promise.all(entries.sort((left, right) => left.name.localeCompare(right.name)).map(async (entry) => {
     const path = join(directory, entry.name)
-    return entry.isDirectory() ? findIconFiles(path) : entry.name.endsWith('.svg') ? [path] : []
+    return entry.isDirectory()
+      ? findIconFiles(path)
+      : entry.name.endsWith('.svg')
+        ? [path]
+        : []
   }))
 
   return files.flat()
@@ -50,7 +60,9 @@ function createSymbol(icon: string, id: string): string {
   const viewBox = attributes.match(/viewBox=("[^"]*"|'[^']*')/i)?.[1]
   const width = attributes.match(/\swidth=("[^"]*"|'[^']*')/i)?.[1]
   const height = attributes.match(/\sheight=("[^"]*"|'[^']*')/i)?.[1]
-  const dimensions = width && height ? ` viewBox="0 0 ${width.slice(1, -1)} ${height.slice(1, -1)}"` : ''
+  const dimensions = width && height
+    ? ` viewBox="0 0 ${width.slice(1, -1)} ${height.slice(1, -1)}"`
+    : ''
   const symbolAttributes = attributes.replace(/\s(?:aria-hidden|height|version|width|xmlns)=("[^"]*"|'[^']*')/gi, '')
 
   return icon
@@ -62,7 +74,9 @@ function addTrailingSlashes(content: string): string {
   const pagePaths = new Set(Object.values(pageRoutePaths))
 
   return content.replace(/href="([^"]+)"/g, (href, path: string) => {
-    return path !== '/' && pagePaths.has(path) ? `href="${path}/"` : href
+    return path !== '/' && pagePaths.has(path)
+      ? `href="${path}/"`
+      : href
   })
 }
 
@@ -110,7 +124,9 @@ interface BuildReport {
 }
 
 export function formatBuildReport({ cssBytes = 0, durationMs, jsBytes = 0, outputDir = defaultOutputDir, pageFiles = [], pages }: BuildReport): string {
-  const files = pageFiles.map((file, index) => `${dim(index === pageFiles.length - 1 ? '└──' : '├──')} ${file}`).join('\n')
+  const files = pageFiles.map((file, index) => `${dim(index === pageFiles.length - 1
+    ? '└──'
+    : '├──')} ${file}`).join('\n')
   const output = basename(outputDir)
 
   return `\n${cyan('Lui v1.1.0')}\n\n${cyan(`${output}/`)}\n${files || `${dim('└──')} …`}\n\n${green('✓')} ${pages} pages prerendered in ${durationMs}ms\n${green('✓')} CSS ${(cssBytes / 1024).toFixed(1)} kB · JS ${(jsBytes / 1024).toFixed(1)} kB\n${green('✓')} Output written to ${cyan(output)}`

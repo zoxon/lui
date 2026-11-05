@@ -45,13 +45,23 @@ describe('header', () => {
   })
 
   it('escapes HTML in nav link labels', () => {
-    const html = Header({ logo: 'App', navLinks: [{ label: '<b>link</b>', href: '/' }] })
+    const html = Header({
+      logo: 'App',
+      navLinks: [
+        { label: '<b>link</b>', href: '/' },
+      ],
+    })
     expect(html).not.toContain('<b>link</b>')
     expect(html).toContain('&lt;b&gt;')
   })
 
   it('escapes HTML in nav link hrefs', () => {
-    const html = Header({ logo: 'App', navLinks: [{ label: 'x', href: '"><script>' }] })
+    const html = Header({
+      logo: 'App',
+      navLinks: [
+        { label: 'x', href: '"><script>' },
+      ],
+    })
     expect(html).not.toContain('"><script>')
     expect(html).toContain('&quot;&gt;&lt;script&gt;')
   })

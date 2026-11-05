@@ -87,7 +87,9 @@ class DrawerClient extends Component {
   }
 
   open(): void {
-    this.returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : undefined
+    this.returnFocus = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : undefined
     this.element.classList.add('is-visible')
     if (this.dialog)
       focusFirst(this.dialog, this.closeButton)

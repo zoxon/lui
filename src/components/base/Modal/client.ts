@@ -94,7 +94,9 @@ class ModalClient extends Component {
     this.animationController?.abort()
     this.animationController = undefined
 
-    this.returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : undefined
+    this.returnFocus = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : undefined
     this.element.hidden = false
     this.element.classList.remove('is-closing')
     this.element.classList.add('is-visible')

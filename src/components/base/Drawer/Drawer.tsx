@@ -12,7 +12,9 @@ export interface DrawerProps {
 }
 
 function renderContent(children: string | TemplateResult) {
-  return typeof children === 'string' ? raw(children) : children
+  return typeof children === 'string'
+    ? raw(children)
+    : children
 }
 
 export function Drawer({ title, children, footer, id, side = 'right', class: className }: DrawerProps): TemplateResult {

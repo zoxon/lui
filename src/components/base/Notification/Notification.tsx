@@ -30,7 +30,9 @@ export function Notification({
     <div
       class={['notification', `notification--type-${type}`, className]}
       id={id}
-      role={type === 'error' ? 'alert' : 'status'}
+      role={type === 'error'
+        ? 'alert'
+        : 'status'}
       data-notification
     >
       <Icon name={notificationIcons[type]} size={20} class="notification__icon" />

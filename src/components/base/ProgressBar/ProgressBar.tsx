@@ -23,7 +23,13 @@ export function ProgressBar(props: ProgressBarProps): TemplateResult {
   const clamped = Math.min(100, Math.max(0, value))
 
   return (
-    <div class={['progress', `progress--size-${size}`, `progress--theme-${theme}`, className]}>
+    <div class={[
+      'progress',
+      `progress--size-${size}`,
+      `progress--theme-${theme}`,
+      className,
+    ]}
+    >
       {(label || showValue)
         ? (
             <div class="progress__label">

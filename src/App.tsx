@@ -8,7 +8,9 @@ export interface AppProps {
 }
 
 export function App({ mode = 'spa', page = DEFAULT_PAGE }: AppProps = {}): TemplateResult {
-  const content = mode === 'prerender' ? (routes[page] ?? routes[DEFAULT_PAGE])() : undefined
+  const content = mode === 'prerender'
+    ? (routes[page] ?? routes[DEFAULT_PAGE])()
+    : undefined
 
   return <Layout content={content} landing={page === DEFAULT_PAGE} />
 }

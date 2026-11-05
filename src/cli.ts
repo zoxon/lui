@@ -47,7 +47,10 @@ export async function runCommand(
   projectRoot: string,
   operations: Partial<CliOperations> = {},
 ): Promise<void> {
-  const api = { ...defaultOperations, ...operations }
+  const api = {
+    ...defaultOperations,
+    ...operations,
+  }
   const viteConfig = createViteConfig(projectRoot, config.vite)
 
   if (command === 'dev') {
@@ -58,7 +61,9 @@ export async function runCommand(
   }
 
   if (command === 'preview') {
-    const server = await api.preview(mergeConfig(viteConfig, { build: { outDir: config.outDir } }))
+    const server = await api.preview(mergeConfig(viteConfig, {
+      build: { outDir: config.outDir },
+    }))
     server.printUrls()
     return
   }
@@ -70,7 +75,9 @@ export async function runCommand(
 
   if (command === 'build') {
     const temporaryDir = resolve(projectRoot, '.lui')
-    const base = typeof viteConfig.base === 'string' ? viteConfig.base : '/'
+    const base = typeof viteConfig.base === 'string'
+      ? viteConfig.base
+      : '/'
 
     try {
       await api.build(mergeConfig(withOutputDir(viteConfig, temporaryDir, true), {
@@ -95,7 +102,9 @@ async function main(): Promise<void> {
 
 if (import.meta.url === new URL(process.argv[1], 'file:').href) {
   void main().catch((error: unknown) => {
-    console.error(error instanceof Error ? error.message : error)
+    console.error(error instanceof Error
+      ? error.message
+      : error)
     process.exitCode = 1
   })
 }

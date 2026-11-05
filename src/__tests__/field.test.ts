@@ -21,7 +21,12 @@ describe('field', () => {
   })
 
   it('hides hint when error is present', () => {
-    const html = Field({ label: 'x', children: '', hint: 'Hint text', error: 'Required' })
+    const html = Field({
+      label: 'x',
+      children: '',
+      hint: 'Hint text',
+      error: 'Required',
+    })
     expect(html).not.toContain('field__hint')
     expect(html).not.toContain('Hint text')
   })

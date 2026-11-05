@@ -12,7 +12,9 @@ export interface TabsProps {
 let nextTabsId = 0
 
 function renderContent(children: string | TemplateResult) {
-  return typeof children === 'string' ? raw(children) : children
+  return typeof children === 'string'
+    ? raw(children)
+    : children
 }
 
 function isTabsItemNode(child: unknown): child is TabsItemNode {
@@ -21,9 +23,13 @@ function isTabsItemNode(child: unknown): child is TabsItemNode {
 
 export function Tabs({ children, variant = 'default', class: className, id }: TabsProps): TemplateResult {
   const tabsId = id ?? `tabs-${++nextTabsId}`
-  const items = (Array.isArray(children) ? children : [children]).filter(isTabsItemNode)
+  const items = (Array.isArray(children)
+    ? children
+    : [children]).filter(isTabsItemNode)
   const selectedIndex = items.findIndex(item => item.selected)
-  const activeIndex = selectedIndex >= 0 ? selectedIndex : 0
+  const activeIndex = selectedIndex >= 0
+    ? selectedIndex
+    : 0
 
   return (
     <div class={['tabs', variant === 'pills' && 'tabs--variant-pills', className]} data-component="tabs">
