@@ -72,13 +72,13 @@ Use `html`` only when JSX is not a good fit; otherwise prefer JSX first.
 **Escaping rule:**
 
 - User-supplied strings (labels, names, values, hrefs) → auto-escaped by `html` tag
-- Developer-supplied HTML (children strings, footer, actions, trusted content) → `raw(value)`, not escaped
+- Content props (children, footer, actions, item content) → plain strings are escaped; pass trusted markup as `raw(value)` or JSX (`string | TemplateResult | RawHtml`)
 - Boolean attributes (disabled, checked, open) → inline: `disabled=${value}` — omits attribute when false/null/undefined
 
 **Composition rule:**
 
 - Nest components directly with JSX: `<Button ... />`, not `${Button(props)}`
-- `raw()` only for developer-supplied **string** props (e.g. `typeof children === 'string' ? raw(children) : children`)
+- Do not call `raw()` on a caller's string inside a component; interpolate it (`{children}`) and let it be escaped. `raw()` belongs at the call site
 - Convert to string only at system boundaries: `render(view)` → pass to `parseFromString`, serialization, etc.
 
 **Class naming:** BEM — block, `block__element`, `block--modifier`. Key-value props use `block--prop-value` (`button--variant-ghost`, `button--theme-success`, `button--size-sm`). Boolean props use `block--prop` (`spoiler--expanded`, `button--pill`). clsx for conditional classes.

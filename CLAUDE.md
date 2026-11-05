@@ -59,7 +59,7 @@ contentEl.replaceChildren(...Array.from(doc.body.childNodes))
 ### Escaping rule (component props)
 
 - User-supplied strings (labels, names, values, hrefs) → auto-escaped by the `html` tag / plain JSX interpolation.
-- Developer-supplied HTML (children strings, footer, actions, trusted content) → wrap with `raw(value)`, and only when the prop is documented as trusted markup — several components gate this with `typeof value === 'string' ? raw(value) : value`; follow that pattern for any new "content" prop rather than calling `raw()` unconditionally.
+- Content props (`children`, `footer`, `actions`, tab/accordion item content) accept `string | TemplateResult | RawHtml`. A plain string is **escaped**; trusted markup is passed explicitly as `raw(html)` or composed JSX. Components never call `raw()` on a caller's string. `Content.html` accepts only `RawHtml | TemplateResult`. The only internal `raw()` is `CodeBlock` on highlight.js output.
 
 ### Testing conventions
 

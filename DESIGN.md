@@ -16,7 +16,7 @@ No framework. No virtual DOM. No runtime state. Consumers render the string into
 
 **Two content categories:**
 - **User-supplied strings** (labels, names, values, hrefs) — always HTML-escaped via `escapeHtml()`
-- **Developer-supplied HTML** (body, footer, actions, trusted content fields) — passed through raw
+- **Trusted markup** (body, footer, actions, content fields) — typed `string | TemplateResult | RawHtml`: a plain string is escaped, trusted HTML is passed explicitly with `raw()` or composed as JSX
 
 ---
 
@@ -254,9 +254,9 @@ interface ProgressBarProps {
 interface CardProps {
   title?: string      // escaped
   subtitle?: string   // escaped
-  body: string        // trusted HTML
-  footer?: string     // trusted HTML
-  actions?: string    // trusted HTML — rendered in card header next to title
+  body: string | TemplateResult | RawHtml        // string: escaped; raw() or JSX for markup
+  footer?: string | TemplateResult | RawHtml     // string: escaped; raw() or JSX for markup
+  actions?: string | TemplateResult | RawHtml    // string: escaped; raw() or JSX for markup — rendered in card header next to title
   class?: string
 }
 ```
@@ -324,7 +324,7 @@ function CodeBlock(props: CodeBlockProps): string
 interface TabItem {
   id: string
   label: string   // escaped
-  content: string // trusted HTML
+  content: string | TemplateResult | RawHtml // string: escaped; raw() or JSX for markup
 }
 
 interface TabsProps {
@@ -341,7 +341,7 @@ Static HTML with `aria-selected`. Consumer adds click interactivity.
 interface AccordionItem {
   id: string
   label: string   // escaped
-  content: string // trusted HTML
+  content: string | TemplateResult | RawHtml // string: escaped; raw() or JSX for markup
   open?: boolean
 }
 
@@ -357,7 +357,7 @@ Uses native `<details>`/`<summary>` — interactive without JS.
 ```typescript
 interface SpoilerProps {
   label: string   // escaped
-  content: string // trusted HTML
+  content: string | TemplateResult | RawHtml // string: escaped; raw() or JSX for markup
   open?: boolean
   class?: string
 }
@@ -372,8 +372,8 @@ Uses native `<details>`/`<summary>`.
 ```typescript
 interface ModalProps {
   title: string           // escaped
-  body: string            // trusted HTML
-  footer?: string         // trusted HTML
+  body: string | TemplateResult | RawHtml            // string: escaped; raw() or JSX for markup
+  footer?: string | TemplateResult | RawHtml         // string: escaped; raw() or JSX for markup
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'  // default: 'md'
   class?: string
 }
@@ -384,8 +384,8 @@ Renders `.modal-backdrop` + `.modal` as static HTML. Consumer manages open/close
 ```typescript
 interface DrawerProps {
   title: string            // escaped
-  body: string             // trusted HTML
-  footer?: string          // trusted HTML
+  body: string | TemplateResult | RawHtml             // string: escaped; raw() or JSX for markup
+  footer?: string | TemplateResult | RawHtml          // string: escaped; raw() or JSX for markup
   side?: 'left' | 'right' | 'top' | 'bottom'  // default: 'right'
   class?: string
 }
@@ -403,7 +403,7 @@ interface NavLink {
 interface HeaderProps {
   logo: string          // escaped
   navLinks: NavLink[]
-  actions?: string      // trusted HTML (buttons, avatar, etc.)
+  actions?: string | TemplateResult | RawHtml      // string: escaped; raw() or JSX for markup (buttons, avatar, etc.)
   class?: string
 }
 ```
@@ -425,7 +425,7 @@ interface FooterProps {
 #### Content
 ```typescript
 interface ContentProps {
-  html: string    // trusted HTML — full page content area
+  html: RawHtml | TemplateResult  // trusted markup — wrap strings in raw()
   class?: string
 }
 ```
