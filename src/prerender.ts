@@ -6,6 +6,7 @@ import { render } from '@zoxon/mater'
 import { $, cyan, dim, green } from 'kleur/colors'
 import { App } from './App.js'
 import { pageRoutePaths } from './page-paths.js'
+import { THEME_INIT_SCRIPT } from './theme-init.js'
 
 const defaultOutputDir = join(import.meta.dirname, '../dist')
 const defaultTemporaryDir = join(import.meta.dirname, '../.lui')
@@ -96,7 +97,7 @@ function createDocument(content: string, iconSprite: string, outputFile: string,
     .join('')
   const script = `<script type="module" src="${getAssetPath(outputFile, entry.file, base)}"></script>`
 
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lui — Documentation</title>${styles}</head><body>${iconSprite}<div id="root">${addTrailingSlashes(content)}</div>${script}</body></html>`
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lui — Documentation</title><script>${THEME_INIT_SCRIPT}</script>${styles}</head><body>${iconSprite}<div id="root">${addTrailingSlashes(content)}</div>${script}</body></html>`
 }
 
 async function getClientEntry(temporaryDir: string): Promise<ManifestEntry> {

@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { dim, green } from 'kleur/colors'
 import { describe, expect, it } from 'vitest'
 import { findClientEntry, formatBuildReport, getAssetPath, getOutputFile, prerender } from '@/prerender.js'
+import { THEME_INIT_SCRIPT } from '@/theme-init.js'
 
 const packageJson = JSON.parse(readFileSync(new URL('../../package.json', import.meta.url), 'utf8')) as {
   scripts: Record<string, string>
@@ -109,6 +110,9 @@ describe('getOutputFile', () => {
       await expect(readFile(join(outputDir, 'index.html'), 'utf8')).resolves.toContain('id="icon-ui-check" viewBox="0 0 16 16" fill="none"')
       await expect(readFile(join(outputDir, 'index.html'), 'utf8')).resolves.toContain('id="icon-ui-info" viewBox="0 0 24 24" fill="none" stroke="currentColor"')
       await expect(readFile(join(outputDir, 'index.html'), 'utf8')).resolves.toContain('href="/docs/getting-started/"')
+      const page = await readFile(join(outputDir, 'index.html'), 'utf8')
+      expect(page).toContain(`<script>${THEME_INIT_SCRIPT}</script>`)
+      expect(page.indexOf(THEME_INIT_SCRIPT)).toBeLessThan(page.indexOf('<link rel="stylesheet"'))
       await expect(access(temporaryDir)).rejects.toThrow()
     }
     finally {
