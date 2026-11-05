@@ -1,7 +1,13 @@
-shellEmulator: true
+minimumReleaseAgeExcludePrune: true
+minimumReleaseAgeExclude:
+  - '@zoxon/mater@1.1.0'
+
 trustPolicy: no-downgrade
+shellEmulator: true
+
 packages:
   - .
+
 overrides:
   braces@<3.0.3: '>=3.0.3'
   micromatch@<4.0.8: '>=4.0.8'
@@ -11,3 +17,6 @@ overrides:
   postcss@<=8.5.11: '>=8.5.12'
   postcss@<=8.5.17: '>=8.5.18'
   postcss@<=8.5.22: '>=8.5.23'
+
+allowBuilds:
+  esbuild: false

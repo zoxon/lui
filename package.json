@@ -2,7 +2,7 @@
   "name": "@zoxon/lui",
   "version": "1.1.0",
   "type": "module",
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@12.16.1",
   "exports": {
     "./config": "./src/config.ts"
   },
