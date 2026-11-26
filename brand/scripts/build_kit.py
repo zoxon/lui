@@ -13,10 +13,16 @@ PALETTE = {
 # Main cut and small-size cut (thicker frame, bigger dot, wider gaps). 256 grid, sharp corners.
 MAIN = ('M36 36H150V70H70V186H186V106H220V220H36Z', 'M186 36H220V70H186Z')
 SMALL = ('M26 26H142V72H72V184H184V112H230V230H26Z', 'M184 26H230V72H184Z')
+# Pixel cut on a 16 x 16 grid for 16, 32 and 48 px (the favicon and the interface). Every coordinate is an integer,
+# so the edges are sharp at 1x, 2x and 3x. Do not show it at other sizes.
+PIXEL = ('M1 1H9V4H4V12H12V7H15V15H1Z', 'M12 1H15V4H12Z')
+# Pixel cut on a 28 x 28 grid for exactly 28 px (the interface logo) and 56 px. 1 unit = 1 px.
+PIXEL28 = ('M2 2H16V7H7V21H21V12H26V26H2Z', 'M21 2H26V7H21Z')
+CRISP = ' shape-rendering="crispEdges"'
 
 
-def svg(inner, root=''):
-  return f'<svg xmlns="http://www.w3.org/2000/svg" {root}viewBox="0 0 256 256">{inner}</svg>\n'
+def svg(inner, root='', box='0 0 256 256'):
+  return f'<svg xmlns="http://www.w3.org/2000/svg" {root}viewBox="{box}">{inner}</svg>\n'
 
 
 def mark(cut, colour, cls=''):
@@ -35,9 +41,13 @@ write('symbol-small-ink.svg', svg(f'<title>Lui</title>{mark(SMALL, ink)}'))
 write('symbol-small-pale.svg', svg(f'<title>Lui</title>{mark(SMALL, pale)}'))
 write('symbol-white.svg', svg(f'<title>Lui</title>{mark(MAIN, "#ffffff")}'))
 write('symbol-black.svg', svg(f'<title>Lui</title>{mark(MAIN, "#000000")}'))
-# Favicon: transparent, small-size cut, follows the browser theme. The rules use #fav so they stay inside the file.
+# Favicon: transparent, pixel cut, follows the browser theme. The rules use #fav so they stay inside the file.
 css = f'#fav path{{fill:{ink}}}@media (prefers-color-scheme:dark){{#fav path{{fill:{pale}}}}}'
-write('favicon.svg', svg(f'<style>{css}</style><title>Lui</title>{mark(SMALL, ink)}', 'id="fav" '))
+write('favicon.svg', svg(f'<style>{css}</style><title>Lui</title>{mark(PIXEL, ink, CRISP)}', 'id="fav" ', '0 0 16 16'))
+write('symbol-pixel-ink.svg', svg(f'<title>Lui</title>{mark(PIXEL, ink, CRISP)}', box='0 0 16 16'))
+write('symbol-pixel-pale.svg', svg(f'<title>Lui</title>{mark(PIXEL, pale, CRISP)}', box='0 0 16 16'))
+write('symbol-pixel-28-ink.svg', svg(f'<title>Lui</title>{mark(PIXEL28, ink, CRISP)}', box='0 0 28 28'))
+write('symbol-pixel-28-pale.svg', svg(f'<title>Lui</title>{mark(PIXEL28, pale, CRISP)}', box='0 0 28 28'))
 # App icon: a full square (the platform rounds the corners). The rounded tile is for the README header only.
 tile = (f'<title>Lui</title><rect{{R}} width="256" height="256" fill="{ground}"/>'
         f'<g transform="translate(48.6 48.6) scale(.62)">{mark(MAIN, pale)}</g>')

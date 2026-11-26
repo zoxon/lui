@@ -1,0 +1,42 @@
+@layer components {
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--text-primary);
+    font-size: var(--font-size-heading-h1);
+    font-weight: var(--font-weight-heading-h1);
+    line-height: 1;
+    text-decoration: none;
+
+    &__mark {
+      flex: none;
+      width: 28px;
+      height: 28px;
+      overflow: visible;
+      color: var(--fill-brand);
+      shape-rendering: crispEdges;
+
+      path {
+        fill: currentColor;
+      }
+    }
+  }
+
+  /* Motion: on hover the square hides at once, inside the right bar of the frame (the same colour),
+     then slides out of the bar up to its place and leaves a gap. It travels 10 units of the 28 grid (10 px).
+     The frame does not move, so the mark never disappears under the pointer.
+     Focus does not play it (keyboard actions are not animated). Reduced motion: no animation at all,
+     because nothing waits for this animation to end. */
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .logo:hover .logo__dot {
+      animation: logo-dot-dock var(--duration-slower) var(--easing-in-out);
+    }
+
+    @keyframes logo-dot-dock {
+      from {
+        transform: translateY(10px);
+      }
+    }
+  }
+}

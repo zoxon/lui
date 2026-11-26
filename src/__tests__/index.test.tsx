@@ -2,6 +2,14 @@ import { describe, expect, it } from 'vitest'
 import { renderIndex } from '@/pages/index.js'
 
 describe('landing page', () => {
+  it('shows the logo mark in the header as a home link', () => {
+    const page = renderIndex()
+
+    expect(page).toContain('class="logo landing-header__brand"')
+    expect(page).toContain('class="logo__mark"')
+    expect(page).toContain('class="logo__dot"')
+  })
+
   it('renders calls to action, features, setup, and footer', () => {
     const page = renderIndex()
 

@@ -59,13 +59,6 @@
     gap: var(--space-4);
   }
 
-  .landing-header__brand {
-    color: var(--text-primary);
-    font-size: var(--font-size-heading-h3);
-    font-weight: var(--font-weight-heading-h3);
-    text-decoration: none;
-  }
-
   .landing-header__nav,
   .landing-hero__actions,
   .landing-footer nav {

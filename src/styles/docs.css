@@ -1,4 +1,5 @@
 @import '@/components/docs/Layout/styles.css';
+@import '@/components/docs/Logo/styles.css';
 @import '@/components/docs/Sidebar/styles.css';
 @import '@/components/docs/ThemeToggle/styles.css';
 @import '@/components/docs/Nav/styles.css';

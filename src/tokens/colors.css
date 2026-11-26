@@ -29,6 +29,9 @@
   --text-on-interactive: var(--color-white);
   --text-on-interactive-disabled: var(--color-slate-400);
 
+  /* Brand: the logo mark */
+  --fill-brand: var(--color-blue-600);
+
   /* Success */
   --fill-success: var(--color-green-600);
   --fill-success-subtle: var(--color-green-50);
@@ -80,6 +83,9 @@
   --fill-interactive-subtle: var(--color-slate-800);
   --text-on-interactive: var(--color-slate-900);
   --text-on-interactive-disabled: var(--color-slate-600);
+
+  /* Brand: the logo mark */
+  --fill-brand: var(--color-blue-300);
 
   /* Success */
   --fill-success: var(--color-green-400);

@@ -96,8 +96,11 @@ function createDocument(content: string, iconSprite: string, outputFile: string,
     .map(file => `<link rel="stylesheet" href="${getAssetPath(outputFile, file, base)}">`)
     .join('')
   const script = `<script type="module" src="${getAssetPath(outputFile, entry.file, base)}"></script>`
+  const icons = `<link rel="icon" href="${getAssetPath(outputFile, 'favicon.svg', base)}" type="image/svg+xml">`
+    + `<link rel="icon" href="${getAssetPath(outputFile, 'favicon.ico', base)}" sizes="48x48">`
+    + `<link rel="apple-touch-icon" href="${getAssetPath(outputFile, 'apple-touch-icon.png', base)}">`
 
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lui — Documentation</title><script>${THEME_INIT_SCRIPT}</script>${styles}</head><body>${iconSprite}<div id="root">${addTrailingSlashes(content)}</div>${script}</body></html>`
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lui — Documentation</title>${icons}<script>${THEME_INIT_SCRIPT}</script>${styles}</head><body>${iconSprite}<div id="root">${addTrailingSlashes(content)}</div>${script}</body></html>`
 }
 
 async function getClientEntry(temporaryDir: string): Promise<ManifestEntry> {

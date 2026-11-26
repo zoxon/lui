@@ -112,6 +112,8 @@ describe('getOutputFile', () => {
       await expect(readFile(join(outputDir, 'index.html'), 'utf8')).resolves.toContain('href="/docs/getting-started/"')
       const page = await readFile(join(outputDir, 'index.html'), 'utf8')
       expect(page).toContain(`<script>${THEME_INIT_SCRIPT}</script>`)
+      expect(page).toContain('<link rel="icon" href="/favicon.svg" type="image/svg+xml">')
+      expect(page).toContain('<link rel="apple-touch-icon" href="/apple-touch-icon.png">')
       expect(page.indexOf(THEME_INIT_SCRIPT)).toBeLessThan(page.indexOf('<link rel="stylesheet"'))
       await expect(access(temporaryDir)).rejects.toThrow()
     }

@@ -9,7 +9,7 @@ Use `guidelines.md` for the rules. Use this file to find the files and to unders
 |---|---|
 | `svg/` | The logo files: colour for light and dark grounds, small-size cuts, one colour, favicon, app icon. |
 | `png/` | PNG exports: avatar 512, Apple touch icon 180, the symbol from 16 to 1024 px. |
-| `favicon.ico` | Transparent icon with 16, 32 and 48 px. |
+| `favicon.ico` | Transparent icon with 16, 32 and 48 px, from the pixel cut. |
 | `readme-header-light.svg`, `readme-header-dark.svg` | The README header as an image, one file for each GitHub theme. |
 | `social-preview.png`, `social-preview.svg` | The GitHub social preview, 1280 x 640 px. The SVG is the source. |
 | `guidelines.md` | Usage rules. |

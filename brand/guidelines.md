@@ -22,7 +22,7 @@ The rule is short:
 
 Every visible part reaches 3:1. The light-ground blue and the dark-ground blue are two colours of one logo: never put the dark-ground version on a light ground, and never put the blue `#2563eb` on a dark ground (it reaches only 2.7:1 on a dark browser tab).
 
-`favicon.svg` follows this rule by itself: it is blue in a light browser and light blue in a dark browser. `favicon.ico` and the small PNG files have one colour, blue `#2563eb`. They are a fallback for old browsers and are weaker on a dark tab. Link the SVG first.
+`favicon.svg` (pixel cut) follows this rule by itself: it is blue in a light browser and light blue in a dark browser. `favicon.ico` and the small PNG files have one colour, blue `#2563eb`. They are a fallback for old browsers and are weaker on a dark tab. Link the SVG first.
 
 ## Files
 
@@ -31,6 +31,8 @@ Every visible part reaches 3:1. The light-ground blue and the dark-ground blue a
 | `svg/symbol-ink.svg` | Light grounds. |
 | `svg/symbol-pale.svg` | Dark grounds. |
 | `svg/symbol-small-ink.svg`, `svg/symbol-small-pale.svg` | Small sizes (below 40 px). The frame and the square are thicker. |
+| `svg/symbol-pixel-ink.svg`, `svg/symbol-pixel-pale.svg` | Exactly 16, 32 or 48 px. Drawn on a 16 x 16 pixel grid: the edges are sharp. |
+| `svg/symbol-pixel-28-ink.svg`, `svg/symbol-pixel-28-pale.svg` | Exactly 28 px (or 56 px): the logo in the interface. Drawn on a 28 x 28 grid. |
 | `svg/symbol-white.svg`, `svg/symbol-black.svg` | One colour: photos, print. |
 | `svg/favicon.svg`, `favicon.ico` | Browser tab. Transparent. The SVG follows the browser theme. |
 | `svg/app-icon.svg` | Full square tile. The platform rounds the corners. |
@@ -40,7 +42,10 @@ Every visible part reaches 3:1. The light-ground blue and the dark-ground blue a
 
 ## Size and clear space
 
-- Use the main cut from 40 px up. Use the small-size cut below 40 px.
+- Use the main cut from 40 px up.
+- At exactly 28 px (or 56 px) use the 28 pixel cut. It is the size of the logo in the Lui interface.
+- At exactly 16, 32 or 48 px use the pixel cut. It is drawn on a 16 x 16 grid, so every edge falls on a pixel. A cut on a 256 grid blurs at these sizes. Show the pixel cut only at 16, 32, 48 px (or a whole multiple), never at 20, 24 or 40 px.
+- At other sizes below 40 px use the small-size cut.
 - Smallest size: 16 px.
 - Clear space: keep free space of one quarter of the mark width on every side.
 - A favicon has no tile. An app icon and an avatar always have the tile.
