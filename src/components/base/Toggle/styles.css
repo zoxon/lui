@@ -31,7 +31,7 @@
       height: 20px;
       border-radius: var(--border-radius-full);
       background: var(--border-strong);
-      transition: background 0.15s ease;
+      transition: background var(--duration-fast) var(--easing-in-out);
       flex-shrink: 0;
     }
 
@@ -54,7 +54,7 @@
       height: 16px;
       border-radius: var(--border-radius-full);
       background: var(--fill-background);
-      transition: transform 0.15s ease;
+      transition: transform var(--duration-base) var(--easing-out);
       box-shadow: var(--shadow-xs);
     }
 

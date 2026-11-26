@@ -14,8 +14,23 @@
   *::before,
   *::after {
     transition:
-      background-color 0.15s ease,
-      border-color 0.15s ease,
-      color 0.15s ease;
+      background-color var(--duration-fast) var(--easing-in-out),
+      border-color var(--duration-fast) var(--easing-in-out),
+      color var(--duration-fast) var(--easing-in-out);
+  }
+
+  /* Reduced motion: every element shows its final state at once. The duration is not zero, so animationend still fires
+     and components that wait for it (modal, notifications) can finish. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0s !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      transition-delay: 0s !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

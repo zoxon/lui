@@ -23,8 +23,8 @@
       display: grid;
       place-content: center;
       transition:
-        border-color 0.1s ease,
-        background 0.1s ease;
+        border-color var(--duration-fast) var(--easing-in-out),
+        background var(--duration-fast) var(--easing-in-out);
 
       &::before {
         content: '';
@@ -40,7 +40,7 @@
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center;
         transform: scale(0);
-        transition: transform 0.15s ease;
+        transition: transform var(--duration-base) var(--easing-out);
       }
 
       &:checked {

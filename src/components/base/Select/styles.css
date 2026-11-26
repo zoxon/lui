@@ -15,9 +15,7 @@
       background-repeat: no-repeat;
       background-position: right var(--space-3) center;
       cursor: pointer;
-      transition:
-        border-color 0.15s ease,
-        box-shadow 0.15s ease;
+      transition: border-color var(--duration-fast) var(--easing-in-out);
 
       &:focus {
         outline: none;

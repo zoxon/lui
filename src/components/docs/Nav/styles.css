@@ -23,8 +23,8 @@
       color: var(--text-secondary);
       border-radius: var(--border-radius-sm);
       transition:
-        background 0.1s ease,
-        color 0.1s ease;
+        background var(--duration-fast) var(--easing-in-out),
+        color var(--duration-fast) var(--easing-in-out);
       text-decoration: none;
 
       &:hover {

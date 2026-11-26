@@ -33,7 +33,7 @@
       background: none;
       border: none;
       user-select: none;
-      transition: background 0.1s ease;
+      transition: background var(--duration-fast) var(--easing-in-out);
 
       &:hover {
         background: var(--fill-subtle);
@@ -44,7 +44,7 @@
       width: 16px;
       height: 16px;
       color: var(--text-muted);
-      transition: transform 0.2s ease;
+      transition: transform var(--duration-base) var(--easing-out);
       flex-shrink: 0;
     }
 

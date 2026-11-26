@@ -17,18 +17,18 @@
     }
 
     &.is-visible {
-      animation: modal-fade-in 0.3s cubic-bezier(0, 0, 0.2, 1);
+      animation: modal-fade-in var(--duration-slow) var(--easing-out);
 
       .modal {
-        animation: modal-slide-in 0.3s cubic-bezier(0, 0, 0.2, 1);
+        animation: modal-slide-in var(--duration-slow) var(--easing-out);
       }
     }
 
     &.is-closing {
-      animation: modal-fade-out 0.3s cubic-bezier(0, 0, 0.2, 1);
+      animation: modal-fade-out var(--duration-slow) var(--easing-out);
 
       .modal {
-        animation: modal-slide-out 0.3s cubic-bezier(0, 0, 0.2, 1);
+        animation: modal-slide-out var(--duration-slow) var(--easing-out);
       }
     }
   }
@@ -118,8 +118,8 @@
       padding: var(--space-1);
       border-radius: var(--border-radius-sm);
       transition:
-        color 0.1s ease,
-        background 0.1s ease;
+        color var(--duration-fast) var(--easing-in-out),
+        background var(--duration-fast) var(--easing-in-out);
 
       &:hover {
         color: var(--text-primary);

@@ -8,7 +8,9 @@
     z-index: var(--z-index-backdrop);
     opacity: 0;
     visibility: hidden;
-    transition: 300ms all cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+      opacity var(--duration-slow) var(--easing-out),
+      visibility var(--duration-slow) var(--easing-out);
 
     &.is-visible {
       opacity: 1;
@@ -27,7 +29,7 @@
     display: flex;
     flex-direction: column;
     z-index: var(--z-index-modal);
-    transition: 300ms transform cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform var(--duration-slow) var(--easing-out);
 
     &--side-right {
       top: 0;
@@ -77,8 +79,8 @@
       padding: var(--space-1);
       border-radius: var(--border-radius-sm);
       transition:
-        color 0.1s ease,
-        background 0.1s ease;
+        color var(--duration-fast) var(--easing-in-out),
+        background var(--duration-fast) var(--easing-in-out);
 
       &:hover {
         color: var(--text-primary);

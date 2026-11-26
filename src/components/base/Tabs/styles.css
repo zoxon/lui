@@ -23,8 +23,8 @@
       border-left: none;
       border-right: none;
       transition:
-        color 0.15s ease,
-        border-color 0.15s ease;
+        color var(--duration-fast) var(--easing-in-out),
+        border-color var(--duration-fast) var(--easing-in-out);
 
       &[aria-selected='true'] {
         color: var(--fill-interactive);

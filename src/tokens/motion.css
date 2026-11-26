@@ -1,0 +1,9 @@
+/* Motion tokens. Lui is technical and precise: short, crisp, no overshoot. */
+:root {
+  --easing-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --easing-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 120ms;
+  --duration-base: 160ms;
+  --duration-slow: 240ms;
+  --duration-slower: 560ms; /* a rare brand moment, for example the logo */
+}

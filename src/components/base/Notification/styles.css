@@ -11,13 +11,13 @@
     box-shadow: var(--shadow-lg);
     color: var(--text-primary);
     pointer-events: auto;
-    animation: notification-enter 0.2s ease-out both;
+    animation: notification-enter var(--duration-base) var(--easing-out) both;
 
     &.is-closing {
-      animation: notification-exit 0.2s ease-in both;
+      animation: notification-exit var(--duration-base) var(--easing-out) both;
 
       .notification__icon {
-        animation: notification-icon-exit 0.2s ease-in both;
+        animation: notification-icon-exit var(--duration-base) var(--easing-out) both;
       }
     }
 
@@ -80,8 +80,8 @@
       color: var(--text-secondary);
       cursor: pointer;
       transition:
-        background 0.15s ease,
-        color 0.15s ease;
+        background var(--duration-fast) var(--easing-in-out),
+        color var(--duration-fast) var(--easing-in-out);
 
       &:hover {
         background: var(--fill-subtle);

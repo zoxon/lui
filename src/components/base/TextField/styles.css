@@ -12,9 +12,7 @@
       color: var(--text-primary);
       font-size: var(--font-size-body-md);
       line-height: var(--line-height-body-md);
-      transition:
-        border-color 0.15s ease,
-        box-shadow 0.15s ease;
+      transition: border-color var(--duration-fast) var(--easing-in-out);
       box-sizing: border-box;
     }
 

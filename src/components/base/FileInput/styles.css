@@ -10,9 +10,7 @@
     background: var(--fill-background);
     overflow: hidden;
     cursor: pointer;
-    transition:
-      border-color 0.15s ease,
-      box-shadow 0.15s ease;
+    transition: border-color var(--duration-fast) var(--easing-in-out);
 
     &:focus-within {
       border-color: var(--fill-interactive);
@@ -70,7 +68,7 @@
       background: var(--fill-subtle);
       border-right: 1px solid var(--border-base);
       white-space: nowrap;
-      transition: background 0.15s ease;
+      transition: background var(--duration-fast) var(--easing-in-out);
     }
 
     &__value {
