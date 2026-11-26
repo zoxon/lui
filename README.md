@@ -1,4 +1,7 @@
-# Lui
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="brand/readme-header-dark.svg">
+  <img src="brand/readme-header-light.svg" width="520" alt="Lui: lightweight, cross-framework UI library">
+</picture>
 
 **L**ightweight **U**ser **I**nterface — minimalist cross-framework UI library. Components are pure TypeScript/JSX functions that return `TemplateResult` from `@zoxon/mater` — no framework, no virtual DOM.
 
